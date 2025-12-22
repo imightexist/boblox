@@ -6,8 +6,8 @@
 - inviting system (gives tix)
 - account creation and sign in
 ## links
-- ![boblox](https://boblox.collabai.lol)
-- ![discord](https://boblox.collabai.lol/discord) (pls join if you know how to rcc i do want this finished one day)
+- [boblox](https://boblox.collabai.lol)
+- [discord](https://boblox.collabai.lol/discord) (pls join if you know how to rcc i do want this finished one day)
 ## set up
 ```
 npm i
