@@ -1,0 +1,144 @@
+<div id="sidebar">
+    <style>
+        #sidebar{
+            display:none;
+            position:fixed;
+            top:0;
+            left:0;
+            padding:80px 10px 0px 10px;
+            height:100%;
+            width:175px;
+            background: rgb(250,250,250);
+            border-right:1px solid #E3E3E3;
+            z-index:2
+        }
+        @media(min-width:970px){
+            #sidebar{
+                padding-top:40px
+            }
+        }
+        @media (min-width:1688px){
+            #sidebar{
+                display:block
+            }
+        }
+        #sidebar p{
+            font-size:18px;
+            padding-top:8px;
+            padding-bottom:5px;
+            font-weight:400
+        }
+        #sidebar a{
+            color:#212529;
+            padding-top:5px;
+            width:100%;
+            display:block
+        }
+        #sidebar a:hover{
+            text-decoration:none;
+            color:#00A2FF
+        }
+        #sidebar .sidebar-green:hover{
+            color:#02B757
+        }
+        #sidebar .sidebar-orange:hover{
+            color:#F68802
+        }
+        #sidebar a p{
+            display:inline-block;
+            padding:0px;
+            vertical-align:middle;
+            font-size:16px
+        }
+        #sidebar .btn-secondary-sm{
+            color:white;
+            padding:9px 0px;
+            font-size:16px;
+            margin-top:12px
+        }
+        #sidebar .btn-secondary-sm:hover{
+            color:white
+        }
+        #sidebar-avatar{
+            width:26px;
+            height:26px;
+            border-radius:100%;
+            background-color:white;
+            border:1px solid rgb(204,204,204);
+            display:inline-block;
+            /*box-shadow: 0 1px 4px 0 rgba(25, 25, 25, 0.3);*/
+            margin-top:8px;
+            margin-bottom:2px
+        }
+        
+        a:has(#sidebar-username):hover{
+            color:black
+            
+        }
+        a:has(#sidebar-username):hover #sidebar-avatar{
+            transition: box-shadow 200ms ease;
+            box-shadow: 0 1px 6px 0 rgba(25, 25, 25, 0.75);
+            cursor:pointer
+        }
+    </style>
+    <!--a>
+        <div id="sidebar-avatar"></div>
+        <p id="sidebar-username" style="width:max-content;display:inline-block;margin-left:3px;font-size:18px;vertical-align:top;line-height: 26px;margin-top:8px">username</p>
+    </a-->
+    <p id="sidebar-username">username</p>
+    <div class="divider"></div>
+    <a href="/home" class="sidebar-green">
+        <span class="icon-nav-home"></span>
+        <p>Home</p>
+    </a>
+    <a href="/users" class="sidebar-orange" id="sidebar-profile">
+        <span class="icon-nav-profile"></span>
+        <p>Profile</p>
+    </a>
+    <a href="/messages">
+        <span class="icon-nav-message"></span>
+        <p>Messages</p>
+    </a>
+    <a href="/users">
+        <span class="icon-nav-friends"></span>
+        <p>Friends</p>
+    </a>
+    <a href="/avatar" class="sidebar-orange">
+        <span class="icon-nav-charactercustomizer"></span>
+        <p>Avatar</p>
+    </a>
+    <a href="/users" class="sidebar-green">
+        <span class="icon-nav-inventory"></span>
+        <p>Inventory</p>
+    </a>
+    <a href="/trade">
+        <span class="icon-nav-trade"></span>
+        <p>Trade</p>
+    </a>
+    <a href="/groups">
+        <span class="icon-nav-group"></span>
+        <p>Groups</p>
+    </a>
+    <a href="https://reddit.com/r/bobloxgame" target="_blank">
+        <span class="icon-nav-forum"></span>
+        <p>Forums (Reddit)</p>
+    </a>
+    <a href="https://www.reddit.com/r/bobloxgame/?f=flair_name%3A%22Blog%22" target="_blank">
+        <span class="icon-nav-blog"></span>
+        <p>Blog (Reddit)</p>
+    </a>
+    <a href="/gamecards">
+        <span class="icon-nav-shop"></span>
+        <p>Gift Cards</p>
+    </a>
+    <a href="/upgrades/premium" class="btn-secondary-sm btn-full-width">Upgrade Now</a>
+</div>
+<script>
+    document.getElementById("nav-menu").addEventListener("click",function(e){
+        if (document.getElementById("sidebar").style.display==""){
+            document.getElementById("sidebar").style.display="block"
+        }else{
+            document.getElementById("sidebar").style.display=""
+        }
+    })
+</script>

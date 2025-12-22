@@ -1,0 +1,122 @@
+<style>
+    .rbx-header{
+        background-color:#FF8B00
+    }
+</style>
+<link href="/static/profile.css" rel="stylesheet">
+<div class="content">
+    <div id="RobuxContainer">
+        <div class="banner-ad"><a><img src="/static/banner.png"></a></div>
+        <div class="ad-annotations " style="width: 728px;margin:0 auto;display:none">
+            <span class="ad-identification">
+                <span class="ad-identification-text">ADVERTISEMENT</span>
+            </span>
+                <a class="BadAdButton" target="_top" href="#" title="click to report an offensive ad">Report</a>
+        </div>
+        <div class="section-content profile-header-content ng-scope" ng-controller="profileHeaderController" style="margin-top:15px">
+            <div class="profile-header-top">
+                <div class="avatar avatar-headshot-lg card-plain profile-avatar-image" ng-non-bindable="">
+                    <span class="avatar-card-link avatar-image-link">
+                        <img alt="Shedletsky" class="avatar-card-image profile-avatar-thumb" src="https://web.archive.org/web/20160714044712im_/https://t5.rbxcdn.com/845cb35385f6fa7c0f967c172687decc">
+                    </span>
+                    <span class="avatar-status online profile-avatar-status icon-online" title="Website"></span>
+                </div>
+                <div class="header-caption">
+                    <div class="header-title">
+                        <h2 id="profile-username">Shedletsky</h2>
+                            <span class="icon-obc"></span>
+                    </div>
+                    <div class="header-details">
+                        <ul class="details-info">
+                            <li>
+                                <div class="text-label">Friends</div>
+                                <a class="text-name" href="https://web.archive.org/web/20160714044712/https://www.roblox.com/users/261/friends#!/friends">
+                                    <h3 class="ng-binding">
+                                        94
+                                    </h3>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="text-label">Followers</div>
+                                <a class="text-name" href="https://web.archive.org/web/20160714044712/https://www.roblox.com/users/261/friends#!/followers">
+                                    <h3 class="ng-binding">670K+</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="text-label">Following</div>
+                                <a class="text-name" href="https://web.archive.org/web/20160714044712/https://www.roblox.com/users/261/friends#!/following">
+                                    <h3 class="ng-binding">
+                                        458K+
+                                    </h3>
+                                </a>
+                            </li>
+                        </ul>
+                            <ul class="details-actions desktop-action">
+                                <!-- ngIf: !profileHeaderLayout.areFriends --><li class="btn-friends ng-scope" ng-if="!profileHeaderLayout.areFriends">
+                                    <!-- ngIf: profileHeaderLayout.incomingFriendRequestPending -->
+                                    <!-- ngIf: !profileHeaderLayout.incomingFriendRequestPending
+                                                    && profileHeaderLayout.maySendFriendInvitation -->
+                                    <!-- ngIf: !profileHeaderLayout.incomingFriendRequestPending
+                                                && !profileHeaderLayout.maySendFriendInvitation
+                                                && profileHeaderLayout.friendRequestPending -->
+                                    <!-- ngIf: !profileHeaderLayout.incomingFriendRequestPending
+                                                && !profileHeaderLayout.maySendFriendInvitation
+                                                && !profileHeaderLayout.friendRequestPending --><button ng-if="!profileHeaderLayout.incomingFriendRequestPending
+                                                &amp;&amp; !profileHeaderLayout.maySendFriendInvitation
+                                                &amp;&amp; !profileHeaderLayout.friendRequestPending" class="btn-control-md disabled ng-scope">
+                                        Add Friend
+                                    </button><!-- end ngIf: !profileHeaderLayout.incomingFriendRequestPending
+                                                && !profileHeaderLayout.maySendFriendInvitation
+                                                && !profileHeaderLayout.friendRequestPending -->
+                                </li><!-- end ngIf: !profileHeaderLayout.areFriends -->
+                                <!-- ngIf: profileHeaderLayout.areFriends -->
+                                <li class="btn-messages">
+                                    <button class="btn-control-md" ng-disabled="!profileHeaderLayout.canMessage || profileHeaderLayout.userId == 0" ng-click="sendMessage()" disabled="disabled">
+                                        Message
+                                    </button>
+                                </li>
+                                <!-- ngIf: profileHeaderLayout.canBeFollowed -->
+                            </ul>
+                            <ul class="details-actions mobile-action" ng-class="{'three-item-list': profileHeaderLayout.canBeFollowed}">
+                                <!-- ngIf: !profileHeaderLayout.areFriends --><li class="btn-friends ng-scope" ng-if="!profileHeaderLayout.areFriends">
+                                    <!-- ngIf: profileHeaderLayout.incomingFriendRequestPending -->
+                                    <!-- ngIf: !profileHeaderLayout.incomingFriendRequestPending
+                                    && profileHeaderLayout.maySendFriendInvitation -->
+                                    <!-- ngIf: !profileHeaderLayout.incomingFriendRequestPending
+                                && !profileHeaderLayout.maySendFriendInvitation
+                                && profileHeaderLayout.friendRequestPending -->
+                                    <!-- ngIf: !profileHeaderLayout.incomingFriendRequestPending
+                                && !profileHeaderLayout.maySendFriendInvitation
+                                && !profileHeaderLayout.friendRequestPending --><a ng-if="!profileHeaderLayout.incomingFriendRequestPending
+                                &amp;&amp; !profileHeaderLayout.maySendFriendInvitation
+                                &amp;&amp; !profileHeaderLayout.friendRequestPending" class="action-friend-pending ng-scope">
+                                        <div class="icon-friend-pending"></div>
+                                        <div class="text-label small">Add Friend</div>
+                                    </a><!-- end ngIf: !profileHeaderLayout.incomingFriendRequestPending
+                                && !profileHeaderLayout.maySendFriendInvitation
+                                && !profileHeaderLayout.friendRequestPending -->
+                                </li><!-- end ngIf: !profileHeaderLayout.areFriends -->
+                                <!-- ngIf: profileHeaderLayout.areFriends -->
+                                <li class="btn-messages center-icon">
+                                    <!-- ngIf: !(profileHeaderLayout.canMessage || profileHeaderLayout.userId == 0) -->
+                                    <!-- ngIf: profileHeaderLayout.canMessage || profileHeaderLayout.userId == 0 --><a ng-if="profileHeaderLayout.canMessage || profileHeaderLayout.userId == 0" ng-click="sendMessage()" class="action-message ng-scope">
+                                        <div class="icon-send-message"></div>
+                                        <div class="text-label small">Message</div>
+                                    </a><!-- end ngIf: profileHeaderLayout.canMessage || profileHeaderLayout.userId == 0 -->
+                                </li>
+                                <!-- ngIf: profileHeaderLayout.canBeFollowed -->
+                            </ul>
+                    </div><!--header-details-->
+    <div class="header-userstatus">
+        <div class="header-userstatus-text" ng-hide="profileHeaderLayout.statusFormShown">
+            <span id="userStatusText" class="text-overflow ng-binding" ng-class="{'userstatus-editable' : profileHeaderLayout.mayUpdateStatus}" ng-bind="profileHeaderLayout.statusText | statusfilter" ng-click="revealStatusForm()">"All I do is win."</span>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //document.title="Username - BOBLOX"
+</script>

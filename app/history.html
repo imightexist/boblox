@@ -1,0 +1,164 @@
+<div id="history">
+    <div id="history-throbber"></div>
+    <script>
+        /*let historyThrobInterval = 35
+        let historyThrob = setInterval(function(){
+            if (document.getElementById("history-throbber").innerHTML.codePointAt(0)==57542){
+                document.getElementById("history-throbber").innerHTML=String.fromCodePoint(57426)
+            }else{
+                document.getElementById("history-throbber").innerHTML=String.fromCodePoint(document.getElementById("history-throbber").innerHTML.codePointAt(0)+1)
+            }
+        },historyThrobInterval)*/
+        //let bots;
+        let isBot = false;
+        fetch("/static/bots.json",{method:"GET"}).then(function(res){
+            if (res.status==200){
+                res.json().then(function(body){
+                    //console.log(body);
+                    body.forEach(function(i){
+                        if (!Object.keys(i).includes("userAgents")||isBot){
+                            return;
+                        }
+                        //console.log(i.userAgents);
+                        if (i.userAgents.includes(navigator.userAgent)){
+                            isBot = true;
+                            //return false;
+                        }
+                        //return true;
+                    })
+                })
+            }
+        })
+        
+        function softRedirect(a){
+            document.getElementById("history-throbber").style.display=""
+            let fetchUrl = new URL(a)
+            fetchUrl.searchParams.set("contentOnly","true")
+            fetch(fetchUrl.toString(),{method:"GET"}).then(function(res){
+                if (res.status!=400){
+                    let resUrl = new URL(res.url)
+                    resUrl.searchParams.delete("contentOnly")
+                    resUrl.searchParams.delete("contentOnlya")
+                    resUrl = resUrl.toString()
+                    //console.log(resUrl)
+                    //console.log(3414325234)
+                    res.text().then(function(body){
+                        //console.log(body)
+                        document.getElementById("content").innerHTML=body
+                        document.getElementById("header").setAttribute("style","")
+                        let signUpUrl = new URL(document.querySelector(".rbx-navbar-signup").href)
+                        signUpUrl.searchParams.set("returnUrl",location.pathname)
+                        document.querySelector(".rbx-navbar-signup").href=signUpUrl.toString()
+                        //document.getElementById("footer-note").innerHTML="BOBLOX is not affiliated with Roblox Corporation. Accessing this site signifies your acceptance of the Terms and Conditions unless otherwise stated."
+                        if (document.getElementById("content").querySelector("script")!=undefined){
+                            eval(document.getElementById("content").querySelector("script").innerHTML)
+                        }
+                        document.getElementById("content").querySelectorAll("a").forEach(softNav)
+                        document.getElementById("history-throbber").style.display="none"
+                        //clearInterval(historyThrob)
+                        history.pushState(body,"",resUrl)
+                    }).catch(function(err){
+                        //console.log(err)
+                        location.href=a
+                    })
+                }else{
+                    location.href=a
+                }
+            })
+        }
+        function softRefresh(){
+            softRedirect(location.href)
+        }
+        function softNav(a){
+            //console.log(a.innerHTML)
+            if (a.hasAttribute("href")){
+                if (a.href.startsWith(location.origin)){
+                    //console.log(a.href)
+                    if (location.href.endsWith("#")){
+                        if (location.href==a.href){
+                            return
+                        }
+                    }else if (location.href+"#"==a.href){
+                        return
+                    }
+                    if (a.hasAttribute("target")){
+                        if (a.getAttribute("target")=="_top"){
+                            a.addEventListener("click",function(e){
+                                e.preventDefault();
+                                top.softRedirect(a.href)
+                            })
+                        }
+                        return
+                    }
+                    a.addEventListener("click",function(e){
+                        if (isBot){
+                            return;
+                        }
+                        //console.log(a.href)
+                        /*document.getElementById("history-throbber").innerHTML=String.fromCodePoint(57426)
+                        historyThrob = setInterval(function(){
+                            if (document.getElementById("history-throbber").innerHTML.codePointAt(0)==57542){
+                                document.getElementById("history-throbber").innerHTML=String.fromCodePoint(57426)
+                            }else{
+                                document.getElementById("history-throbber").innerHTML=String.fromCodePoint(document.getElementById("history-throbber").innerHTML.codePointAt(0)+1)
+                            }
+                        },historyThrobInterval)*/
+                        e.preventDefault()
+                        softRedirect(a.href)
+                    })
+                }
+            }
+        }
+        addEventListener("popstate",function(e){
+            if (e.state==null){
+                return
+            }
+            //history.pushState(document.getElementById("content").innerHTML,"",a.href)
+            document.getElementById("content").innerHTML=e.state
+            document.getElementById("header").setAttribute("style","")
+            let signUpUrl = new URL(document.querySelector(".rbx-navbar-signup").href)
+            signUpUrl.searchParams.set("returnUrl",location.pathname)
+            document.querySelector(".rbx-navbar-signup").href=signUpUrl.toString()
+            //document.getElementById("footer-note").innerHTML="BOBLOX is not affiliated with Roblox Corporation. Accessing this site signifies your acceptance of the Terms and Conditions unless otherwise stated."
+            if (document.getElementById("content").querySelector("script")!=undefined){
+                eval(document.getElementById("content").querySelector("script").innerHTML)
+            }
+            document.getElementById("content").querySelectorAll("a").forEach(softNav)
+        })
+        /*document.addEventListener("DOMContentLoaded",function(){
+            document.querySelectorAll("a").forEach(softNav)
+        })*/
+        document.querySelectorAll("a").forEach(softNav)
+        history.replaceState(document.getElementById("content").innerHTML,"")
+        //history.replaceState(document.getElementById("content").innerHTML,"",location.href+"#")
+        //document.getElementById("content").querySelectorAll("a").forEach(function(e){console.log(e)})
+        addEventListener("load",function(){
+            //console.log('a')
+            document.getElementById("history-throbber").style.display="none"
+            //clearInterval(historyThrob)
+        })
+    </script>
+    <style>
+        #history-throbber{
+            width:92px;
+            height:92px;
+            border-radius:8px;
+            position:fixed;
+            top:50%;
+            left:50%;
+            margin-top:-46px;
+            margin-left:-46px;
+            background-color:rgba(0,0,0,0.7);
+            background-image:url(/static/windowsthrobber.gif);
+            background-size:48px;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family:'Meiryo Boot';
+            color:white;
+            font-size:36px;
+            line-height:92px;
+            text-align: center;
+            z-index:2
+        }
+    </style>
+</div>

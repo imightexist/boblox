@@ -1,0 +1,249 @@
+<link href="/static/profile.css" rel="stylesheet">
+<style>
+    .rbx-header{
+        background-color:#FF8B00
+    }
+    .avatar-headshot-lg{
+        border: 1px solid #B8B8B8;
+        border-radius:100%;
+        width:128px;
+        height:128px;
+        display:inline-block;
+        margin-right:12px;
+        float:left
+    }
+    .profile-header-top{
+        /*height:128px*/
+    }
+    #profile-username{
+        letter-spacing:0px;
+        padding:5px 0px;
+        margin-right:12px;
+        color: #191919;
+    }
+    .header-title{
+        display:inline-block;
+        vertical-align:top
+    }
+    .header-title .icon-bc,.icon-tbc,.icon-obc{
+        vertical-align:top
+    }
+    .header-details .details-info{
+        width:36%;
+        float:left;
+    }
+    @media (max-width:767px){
+        #profile-username{
+            font-size:24px
+        }
+        .header-details {
+            display: inline-block;
+            padding-left: 4px;
+            padding-top: 3px;
+        }
+        .header-details .details-info {
+            width: 100%;
+            float: none;
+        }
+    }
+    .avatar-card-image{
+        width:100%;
+        height:100%;
+        object-fit:contain;
+        border-radius:100%
+    }
+    .profile-header-content{
+        margin-top:15px
+    }
+    @media(max-width:728px){
+        .profile-header-content{
+            margin-top:0px
+        }
+    }
+    .header-details{
+        position:relative
+    }
+    @media(max-width:480px){
+        .header-details .details-info {
+            width: 100%;
+        }
+        .avatar-headshot-lg{
+            width:25%;
+            height:auto
+        }
+        .header-details {
+            width: 75%;
+        }
+        #userStatusText{
+            width:100%;
+            display:inline-block
+        }
+        .header-userstatus{
+            overflow:inherit
+        }
+    }
+    .details-info li{
+        display:inline-block;
+        width:33%;
+        float:left;
+        text-align:center;
+        padding: 0 5px;
+    }
+    .details-info li h3{
+        font-size:24px;
+        font-weight:300;
+        color:inherit;
+        padding: 5px 0;
+    }
+    .details-info li a:hover h3{
+        text-decoration: underline;
+    }
+    #userStatusText{
+        color: #191919;
+        /*cursor:pointer*/
+    }
+    .details-actions{
+        float:right;
+        width:45%
+    }
+    .details-actions li{
+        display:inline-block;
+        padding: 0 5px;
+        float:right
+    }
+    .header-userstatus-text{
+        margin: 6px 0;
+        overflow: hidden;
+    }
+    @media (max-width: 991px) {
+        #RobuxContainer {
+            padding: 0 5px;
+        }
+    }
+    .mobile-details-actions .center-icon {
+        border-left: 1px solid #B8B8B8;
+    }
+    .mobile-details-actions li a .icon-background {
+        background: url(/static/profile_icons_05112016.svg);
+        height: 44px;
+        width: 44px;
+        margin: 0 auto;
+    }
+    .mobile-details-actions li{
+        width:calc(50% - 2px);
+        display:inline-block
+    }
+    .mobile-details-actions li .icon-text{
+        width:100%;
+        display:inline-block;
+        text-align: center;
+        font-size:14px;
+        font-weight:400;
+        color:#B8B8B8
+    }
+    .mobile-details-actions .action-friend-pending .icon-background {
+        background-position-y: 0px;
+    }
+    .mobile-details-actions .action-friend-pending[disabled] .icon-background {
+        background-position-y: -88px;
+    }
+    .mobile-details-actions .action-message .icon-background {
+        background-position-y: -132px;
+    }
+    .mobile-details-actions .action-message[disabled] .icon-background {
+        background-position-y: -220px;
+    }
+    .mobile-details-actions li a:hover{
+        cursor:pointer
+    }
+    .mobile-details-actions li a[disabled]:hover{
+        cursor:default
+    }
+    .mobile-details-actions{
+        margin: 12px auto;
+    }
+</style>
+<div class="content">
+    <div id="RobuxContainer">
+        <div class="banner-ad"><a><img src="/static/banner.jpg"></a></div>
+        <div class="ad-annotations " style="width: 728px;margin:0 auto;display:none">
+            <span class="ad-identification">
+                <span class="ad-identification-text">ADVERTISEMENT</span>
+            </span>
+                <a class="BadAdButton" target="_top" href="#" title="click to report an offensive ad">Report</a>
+        </div>
+        <div class="section-content profile-header-content">
+            <div class="profile-header-top">
+                <div class="avatar avatar-headshot-lg card-plain profile-avatar-image">
+                    <span class="avatar-card-link avatar-image-link">
+                        <img class="avatar-card-image profile-avatar-thumb" src="/static/NA.png">
+                    </span>
+                </div>
+                <div class="header-title">
+                    <h2 id="profile-username">Username</h2>
+                    <span class="icon-obc" id="profile-bc"></span>
+                </div>
+                <div class="header-userstatus">
+                    <div class="header-userstatus-text">
+                        <span id="userStatusText">"join the discord pls"</span>
+                    </div>
+                </div>
+                <div class="header-details">
+                    <ul class="details-info">
+                        <li>
+                            <div class="text-label">Friends</div>
+                            <a class="text-name" href="#">
+                                <h3>
+                                    0
+                                </h3>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="text-label">Followers</div>
+                            <a class="text-name" href="#">
+                                <h3>0</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="text-label">Following</div>
+                            <a class="text-name" href="#">
+                                <h3>
+                                    0
+                                </h3>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="details-actions hidden-xs">
+                        <li class="btn-friends ng-scope">
+                            <button disabled class="btn-control-md disabled ng-scope">
+                                Add Friend
+                            </button>
+                        </li>
+                        <li class="btn-messages">
+                            <button class="btn-control-md" disabled>
+                                Message
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mobile-details-actions hidden-sm hidden-md hidden-lg hidden-xl">
+                <ul class="two-item-list"><li class="btn-friends ng-scope"><a class="action-friend-pending ng-scope" disabled>
+                            <div class="icon-background"></div>
+                            <span class="icon-text">Add Friend</span>
+                        </a>
+                    </li>
+                    <li class="btn-messages center-icon">
+                        <a class="action-message" disabled>
+                            <div class="icon-background"></div>
+                            <span class="icon-text">Message</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //document.title="Username - BOBLOX"
+</script>

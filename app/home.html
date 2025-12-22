@@ -1,0 +1,203 @@
+<style>
+    .rbx-header{
+        background-color:#00B259;
+        background-color:#00A054
+    }
+    #content-username{
+        display:inline-block;
+        float:none;
+        position:relative;
+        vertical-align:top;
+        margin-top:20px
+    }
+    #content-avatar{
+        width:146px;
+        height:146px;
+        border-radius:100%;
+        background-color:white;
+        border:1px solid rgb(204,204,204);
+        display:inline-block;
+        box-shadow: 0 1px 4px 0 rgba(25, 25, 25, 0.3);
+        margin-right:10px;
+        background-image:url(/static/NA.png);
+        background-size:contain
+    }
+    #content-avatar:hover{
+        transition: box-shadow 200ms ease;
+        box-shadow: 0 1px 6px 0 rgba(25, 25, 25, 0.75);
+        cursor:pointer
+    }
+    .robux-header .icon-default-bc,
+    .icon-bc,
+    .icon-tbc,
+    .icon-obc{
+        position:relative;
+        display:block;
+        margin-top:7px
+    }
+    .robux-header{
+        align-items:center;
+        margin-bottom:8px
+    }
+    #RobuxContainer{
+        padding:0px 10px
+    }
+    .content-panel{
+        width:calc(50% - 10px);
+        display:inline-block;
+        vertical-align: top;
+    }
+    .content-panel h3{
+        font-weight:300;
+        font-size:24px;
+        margin-bottom:10px
+    }
+    .section-content .text-name{
+        display:block;
+        width:fit-content
+    }
+    .section-content .btn-primary-sm{
+        display:inline-block;
+        height:38px;
+        margin-left:10px;
+        width:85px;
+        vertical-align:top;
+        height:36px
+    }
+    .section-content input{
+        width:calc(100% - 100px);
+        display:inline-block;
+        height:36px
+    }
+    @media (max-width:768px){
+        .content-panel{
+            width:100%;
+            margin:0 !important
+        }
+        #content-avatar{
+            width:88px;
+            height:88px
+        }
+        #content-username{
+            font-size:22px;
+            margin-top:0px
+        }
+        span:has(#content-username){
+            margin-left:0px !important
+        }
+    }
+    .divider-green{
+        border-color:#02B757
+    }
+    .divider-orange{
+        border-color:#F68802
+    }
+    .divider-blue{
+        border-color:#00A2FF
+    }
+    .section-content .icon-games,.icon-charactercustomizer,.icon-develop,.icon-friends{
+        width:56px;
+        height:56px;
+        vertical-align:top;
+        background-size:200%
+    }
+    .section-content .icon-games{
+        background-position: 0 -56px;
+    }
+    .section-content .icon-charactercustomizer{
+        background-position: 0 -112px;
+    }
+    .section-content .icon-friends{
+        background-position: 0 -112px;
+    }
+    .section-content .icon-develop{
+        background-position: 0 -56px;
+    }
+    .section-content .divider{
+        margin-top:9px;
+        margin-bottom:12px
+    }
+    .skyscraper{
+        display:none;
+        margin:0px auto
+    }
+    @media(min-width:1232px){
+        .skyscraper{
+            display:inline-block;
+        }
+        .content{
+            max-width:max-content;
+            max-width:1290px;
+        }
+        #RobuxContainer{
+            width:100%;
+            max-width:min(970px,calc(100% - 320px - 8px));
+            display:inline-block;
+            vertical-align:top;
+        }
+    }
+</style>
+<div class="content">
+    <!-- links with # href still fuck up the navigation :( -->
+    <span class="skyscraper"><a><img src="/static/skyscraper.jpg"></a></span>
+    <div id="RobuxContainer">
+        <div class="robux-header">
+            <a><div id="content-avatar"></div></a>
+            <span style="vertical-align:top;display:inline-block;margin-left:10px">
+                <h1 id="content-username">Hello, username!</h1>
+                <span class="icon-obc" id="content-bc"></span>
+            </span>
+        </div>
+        <div class="content-panel" style="margin-right:15px">
+            <h3>My Feed</h3>
+            <div class="section-content">
+                <input placeholder="What are you up to?" class="form-control rbx-input-field rbx-comment-input blur">
+                <a class="btn-primary-sm">Share</a>
+                <div class="divider divider-green"></div>
+                <span class="icon-games"></span>
+                <div style="display:inline-block;margin-left:14px;font-weight:300;width:calc(100% - 80px)">
+                    <h2 style="margin-bottom:5px">Play Games</h2>
+                    <p>
+                        Nearly all BOBLOX games are built by players like you. Here are some of our favorites:
+                    </p>
+                </div>
+                <div class="divider divider-orange"></div>
+                <span class="icon-charactercustomizer"></span>
+                <div style="display:inline-block;margin-left:14px;font-weight:300;width:calc(100% - 80px)">
+                    <h2 style="margin-bottom:5px">Customize Your Avatar</h2>
+                    <p>
+                        Visit the <a class="text-name" href="/avatar" style="display:inline">Avatar Editor</a> to customize your character. Shop for clothing items in the <a class="text-name" href="/catalog" style="display:inline">Catalog</a>.
+                    </p>
+                </div>
+                <div class="divider divider-orange"></div>
+                <span class="icon-develop"></span>
+                <div style="display:inline-block;margin-left:14px;font-weight:300;width:calc(100% - 80px)">
+                    <h2 style="margin-bottom:5px">Build Something</h2>
+                    <p>
+                        Builders will enjoy using our Personal Servers. Professional builders are able to create games on Roblox Studio, and upload them on to the <a class="text-name" href="/develop" style="display:inline">Develop page</a>.
+                    </p>
+                </div>
+                <div class="divider divider-blue"></div>
+                <span class="icon-friends"></span>
+                <div style="display:inline-block;margin-left:14px;font-weight:300;width:calc(100% - 80px)">
+                    <h2 style="margin-bottom:5px">Make Friends</h2>
+                    <p>
+                        Meet other players in-game and send them a friend request. If you miss your opportunity you can always send a request later by <a class="text-name" href="/search/users" style="display:inline">searching</a> for their user profile.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content-panel">
+            <h3>Blog News</h3>
+            <a class="btn-control-xs" style="float:right;width:85px" target="_blank" href="https://www.reddit.com/r/bobloxgame">See More</a>
+            <div class="section-content">
+                <p><a href="https://www.reddit.com/r/bobloxgame/comments/1mb1ity/booooooooooooblox/" target="_blank" class="text-name">booooooooooooblox</a></p>
+                <!--p><a href="/ipban" class="text-name">ban your ip</a></p-->
+            </div>
+        </div>
+    </div>
+    <span class="skyscraper"><a><img src="/static/skyscraper.jpg"></a></span>
+</div>
+<script>
+    document.title="Home - BOBLOX"
+</script>

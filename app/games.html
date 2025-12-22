@@ -1,0 +1,146 @@
+<link rel="stylesheet" href="/static/games.css">
+<style>
+    .rbx-header{
+        background-color:#00A054
+    }
+    .content{
+        max-width:100%
+    }
+    #RobuxContainer{
+        max-width:100%;
+        padding:0px 12px;
+        width:100%;
+        /*height:1427px;*/
+        display:inline-block
+    }
+    .rect-ad{
+        display:none;
+        margin-left:15px;
+        margin-bottom:20px;
+    }
+    @media (min-width:1024px){
+        #RobuxContainer{
+            max-width:calc(100% - 345px - 24px)
+        }
+        .rect-ad{
+            display:inline-block
+        }
+    }
+    @media(min-width:1688px){
+        .container-has-sidebar{
+            padding-left:175px
+        }
+    }
+    .games-page-filter .dropdown-menu{
+        margin-top:0px;
+        width:164px;
+        max-height:none;
+        min-width:unset;
+        left:4px;
+        box-shadow: 0 -5px 20px rgba(25, 25, 25, 0.15);
+        border-color:rgb(192,192,192);
+        width:calc(100% - 8px);
+        min-width:164px
+    }
+    .input-dropdown-btn{
+        min-width:164px !important
+    }
+</style>
+<div class="content">
+    <div id="RobuxContainer">
+        <div class="col-xs-12 games-page-filters" id="FiltersAndSort" data-defaulttoppaidtoweekly="true" data-defaultweeklyratings="true">
+
+            <div class="input-group-btn games-page-filter" id="SortFilter">
+                <button type="button" class="input-dropdown-btn" data-toggle="dropdown">
+                    <span class="rbx-selection-label" data-bind="label" data-value="default" data-default="default">Default</span>
+                    <span class="icon-down-16x16"></span>
+                </button>
+                <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+                    <li data-hidetimefilter="" data-value="default"><a href="#">Default</a></li>
+                            <li data-hidetimefilter="" data-value="1">
+                                <a href="#">Popular</a>
+                            </li>
+                            <li data-hidetimefilter="" data-value="8">
+                                <a href="#">Top Earning</a>
+                            </li>
+                            <li data-value="11">
+                                <a href="#">Top Rated</a>
+                            </li>
+                            <li data-hidetimefilter="" data-value="16">
+                                <a href="#">Recommended</a>
+                            </li>
+                            <li data-hidetimefilter="" data-hidegenrefilter="" data-value="3">
+                                <a href="#">Featured</a>
+                            </li>
+                            <li data-value="2">
+                                <a href="#">Top Favorite</a>
+                            </li>
+                            <li data-value="9">
+                                <a href="#">Top Paid</a>
+                            </li>
+                            <li data-value="14">
+                                <a href="#">Builders Club</a>
+                            </li>
+                            <li data-hidetimefilter="" data-value="19" style="display:none">
+                                <a href="#">Popular in VR</a>
+                            </li>
+
+                </ul>
+            </div>
+            <div class="input-group-btn games-page-filter" id="GenreFilter">
+                <button type="button" class="input-dropdown-btn" data-toggle="dropdown">
+                    <span class="rbx-selection-label" data-bind="label" data-value="1" data-default="1">All</span>
+                    <span class="icon-down-16x16"></span>
+                </button>
+                <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu">
+                        <li class="dropdown-option" data-value="1"><a href="#">All</a></li>
+                        <li class="dropdown-option" data-value="13"><a href="#">Adventure</a></li>
+                        <li class="dropdown-option" data-value="19"><a href="#">Building</a></li>
+                        <li class="dropdown-option" data-value="15"><a href="#">Comedy</a></li>
+                        <li class="dropdown-option" data-value="10"><a href="#">Fighting</a></li>
+                        <li class="dropdown-option" data-value="20"><a href="#">FPS</a></li>
+                        <li class="dropdown-option" data-value="11"><a href="#">Horror</a></li>
+                        <li class="dropdown-option" data-value="8"><a href="#">Medieval</a></li>
+                        <li class="dropdown-option" data-value="17"><a href="#">Military</a></li>
+                        <li class="dropdown-option" data-value="12"><a href="#">Naval</a></li>
+                        <li class="dropdown-option" data-value="21"><a href="#">RPG</a></li>
+                        <li class="dropdown-option" data-value="9"><a href="#">Sci-Fi</a></li>
+                        <li class="dropdown-option" data-value="14"><a href="#">Sports</a></li>
+                        <li class="dropdown-option" data-value="7"><a href="#">Town and City</a></li>
+                        <li class="dropdown-option" data-value="16"><a href="#">Western</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span style="width:315px;display:inline-block;vertical-align:top">
+        <span class="rect-ad"><a><img src="/static/rectangle.jpg"></a></span>
+        <span class="rect-ad"><a><img src="/static/rectangle.jpg"></a></span>
+    </span>
+</div>
+<script>
+    document.title="Games - BOBLOX"
+    document.addEventListener("click",function(e){
+        if (e.target != document.getElementById("SortFilter")&&!document.getElementById("SortFilter").contains(e.target)&&document.getElementById("SortFilter").querySelector("ul").style.display=="block"){
+            document.getElementById("SortFilter").querySelector("ul").style.display=""
+        }
+        if (e.target != document.getElementById("GenreFilter")&&!document.getElementById("GenreFilter").contains(e.target)&&document.getElementById("GenreFilter").querySelector("ul").style.display=="block"){
+            document.getElementById("GenreFilter").querySelector("ul").style.display=""
+        }
+    })
+    document.getElementById("SortFilter").addEventListener("click",function(){
+        if (document.getElementById("SortFilter").querySelector("ul").style.display==""){
+            document.getElementById("SortFilter").querySelector("ul").style.display="block"
+        }else{
+            document.getElementById("SortFilter").querySelector("ul").style.display=""
+        }
+        //document.getElementById("GenreFilter").querySelector("ul").style.display=""
+    })
+    document.getElementById("GenreFilter").addEventListener("click",function(){
+        if (document.getElementById("GenreFilter").querySelector("ul").style.display==""){
+            document.getElementById("GenreFilter").querySelector("ul").style.display="block"
+        }else{
+            document.getElementById("GenreFilter").querySelector("ul").style.display=""
+        }
+        //document.getElementById("SortFilter").querySelector("ul").style.display=""
+    })
+</script>

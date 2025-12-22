@@ -1,0 +1,146 @@
+<style>
+    #LoginForm{
+        width:100%;
+        padding:12px
+    }
+    body{
+        background-color:white
+    }
+    #header{
+        display:none
+    }
+    footer{
+        display:none
+    }
+    #content{
+        margin:0;
+        padding:0
+    }
+    .rbx-login-btns a:hover{
+        text-decoration: none;
+    }
+    .rbx-login-btns a{
+        width:calc(50% - 4px)
+    }
+    .input-field{
+        height:50px
+    }
+    .input-field:focus {
+        box-shadow: none;
+        border-color: #00A2FF;
+        color:#191919
+    }
+    .input-field::placeholder{
+        color:#B8B8B8
+    }
+    .form-group{
+        margin-bottom:10px
+    }
+    .rbx-social-signin{
+        display:none
+    }
+    #ErrorMessage{
+        font-size:14px;
+        font-weight:300
+    }
+</style>
+<div id="LoginForm" class="rbx-newLogin">
+            <div id="credentials-section" class="log-in-form">
+                <div class="form-group">
+                    <input autocomplete="off" name="UserName" type="bobloxUsername" id="UserName" class="form-control input-field LoginFormInput" placeholder="Username" tabindex="1" style="background-color: white;">
+                </div>
+                <div class="form-group">
+                    <input autocomplete="off" name="Password" type="password" id="Password" class="form-control input-field LoginFormInput" placeholder="Password" tabindex="2">
+                </div>
+                <div id="iFrameCaptchaControl">
+                    
+                </div>
+                <div class="rbx-login-btns">
+                    <a class="btn-secondary-md" id="LoginButton" tabindex="4">Log In</a>
+					<a class="btn-control-md" href="/" style="float:right" target="_top" id="signupBtn">Sign up</a>
+                </div>
+				<span id="LoggingInStatus" class="rbx-login-status" style="display: none;">
+					<img src="/static/throbber.gif" alt="">
+					<span>Logging in...</span>
+				</span>
+            </div>
+            <div id="two-step-verification-section" class="log-in-form" style="display: none">
+                <div class="form-group">
+                    <div id="TwoStepVerificationMessage" class="two-step-verification-message">Enter your two step verification code.</div>
+                </div>
+                <div class="form-group">
+                    <input name="TwoStepVerificationCodeInput" type="text" id="TwoStepVerificationCodeInput" class="form-control input-field LoginFormInput" placeholder="Code" tabindex="3">
+                </div>
+                <div class="rbx-login-btns">
+                    <a id="TwoStepVerificationNewCodeButton" class="btn-secondary-sm" style="display:none">New Code</a>
+                    <a id="TwoStepVerificationSubmitButton" class="btn-secondary-sm">Submit</a>
+                    <a id="TwoStepVerificationCancelButton" class="btn-control-sm">Cancel</a>
+                </div>
+            </div>
+                <div class="rbx-login-msg" style="margin-top:6px">
+                    <span id="ForgotPasswordLink">
+					    <a href="/login/reset" target="_top" class="text-name small" style="font-weight:300">Forgot Password?</a>
+					</span>
+				    <span id="ErrorMessage" class="text-error small"></span>
+                </div>
+				<div id="SocialNetworkSignIn" class="rbx-social-signin">
+					<div id="fb-root"></div>
+					
+					<div class="rbx-facebook-login">
+						<a class="iframe-login" href="/web/20160714125634/https://www.roblox.com/social/redirect-to-facebook" target="_top">
+  	                        <span class="icon-facebook"></span>
+                            <span>Connect with Facebook</span>
+	                    </a>
+					</div>
+                    
+
+<div id="SocialIdentitiesInformation" data-rbx-login-redirect-url="/social/postlogin">
+</div>
+				</div>
+            </div>
+<script>
+    if (top.location.pathname != "/"){
+        document.getElementById("signupBtn").href+="?returnUrl="+encodeURI(top.location.pathname)
+    }
+    function login(e){
+        if (e.type=="keypress"){
+            if (e.key!="Enter"){
+                return
+            }
+        }
+        //let a = false
+        document.getElementById("Password").style.backgroundColor=""
+        document.getElementById("UserName").style.backgroundColor=""
+        if (document.getElementById("UserName").value==""||document.getElementById("UserName").value.startsWith("_")||document.getElementById("UserName").value.endsWith("_")||document.getElementById("UserName").value.search(/[^\w]/g)!=-1){
+            document.getElementById("UserName").style.backgroundColor="rgb(255, 221, 221)"
+        }
+        if (document.getElementById("Password").value==""||document.getElementById("Password").value=="12345678"||document.getElementById("Password").value=="123456789"||document.getElementById("Password").value=="1234567890"||document.getElementById("Password").value.length<8||document.getElementById("Password").value.length>200){
+            document.getElementById("Password").style.backgroundColor="rgb(255, 221, 221)"
+        }
+        if (document.getElementById("Password").style.backgroundColor=="rgb(255, 221, 221)"||document.getElementById("UserName").style.backgroundColor=="rgb(255, 221, 221)"){
+            return
+        }
+        document.getElementById("LoginButton").style.display="none"
+        document.getElementById("LoggingInStatus").style.display="inline-block"
+        fetch("/api/login",{method:"POST",body:JSON.stringify({username:document.getElementById("UserName").value,password:document.getElementById("Password").value}),headers:{"Content-Type":"application/json"}}).then(function(res){
+            document.getElementById("LoginButton").style.display="inline-block"
+            document.getElementById("LoggingInStatus").style.display="none"
+            if (res.status==200){
+                let params = new URLSearchParams(top.location.search)
+                if (params.has("returnUrl")){
+                    top.location.href=params.get("returnUrl")
+                }else{
+                    top.location.reload()
+                }
+            }else if (res.status==401){
+                document.getElementById("ErrorMessage").innerHTML="<br>Incorrect username or password"
+            }else{
+                document.getElementById("ErrorMessage").innerHTML="<br>Sorry, an error occurred"
+            }
+        })
+    }
+    document.getElementById("LoginButton").addEventListener("click",login)
+    document.getElementById("Password").addEventListener("keypress",login)
+    document.getElementById("UserName").addEventListener("keypress",login)
+    //document.getElementById("iframe-login").remove()
+</script>

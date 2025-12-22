@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="admin" content="">
+    <title>Console - BOBLOX</title>
+    <script>
+        let token = document.querySelector('meta[name=admin]').getAttribute("content")
+        console.log(token)
+        let ws = new WebSocket((location.protocol == "https:" ? "wss://" : "ws://")+location.hostname)
+        ws.onopen = function(){
+            ws.send(JSON.stringify({type:"admin",token:token}))
+            setInterval(function(){
+                if (ws.readyState!=WebSocket.CLOSED){
+                    ws.send(JSON.stringify({type:"ping"}))
+                }
+            },30000)
+        }
+        ws.onmessage = function(msg){
+            try{
+                msg = JSON.parse(msg.data)
+                console.log(msg)
+                if (msg.type=="log"){
+                    document.body.innerHTML+=msg.text+"<br>"
+                }else if (msg.type=="eval"){
+                    console.log(msg.result)
+                }else if (msg.type=="ping"){
+                    ws.send(JSON.stringify({type:"pong"}))
+                }
+            }catch(e){
+
+            }
+        }
+        ws.onclose = function(){
+            document.body.innerHTML+="END OF STREAM"
+        }
+        function adminEval(a){
+            ws.send(JSON.stringify({type:"eval",text:a}))
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

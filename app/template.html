@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOBLOX</title>
+    <link rel="stylesheet" href="/static/leanbase.css">
+    <link rel="stylesheet" href="/static/banner-styles.css">
+    <link rel="icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="stylesheet" href="/static/robux.css">
+    <style>
+        #game-launch-container {
+            z-index: 4;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center
+        }
+
+        #game-launch {
+            max-width: 400px;
+            max-height: 255px;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            margin: 0 auto;
+            text-align: center
+        }
+
+        #game-launch-logo {
+            width: 85px;
+            height: 85px;
+            margin-top: 46px
+        }
+
+        #game-launch-loading {
+            width: 85px;
+            margin-top: 15px
+        }
+
+        #game-launch p {
+            margin-top: 10px
+        }
+
+        .footer-link a:hover {
+            text-decoration: none;
+        }
+
+        #content {
+            min-height: calc(100vh - 40px - 107.8px - 81px);
+            padding-top: 12px;
+            z-index: 1
+        }
+
+        @media (min-width:970px) {
+            #content {
+                min-height: calc(100vh - 80px - 107.8px)
+            }
+        }
+
+        .container-footer {
+            height: 107.8px
+        }
+
+        .fade {
+            display: block;
+            right: 0;
+            position: absolute;
+            top: 40px
+        }
+
+        #iframe-login {
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+            position: relative;
+            z-index: 1
+        }
+
+        .arrow {
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-bottom: 11px solid white;
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: -11px;
+            box-sizing: border-box;
+        }
+
+        #iFrameLogin {
+            margin-top: 10px
+        }
+
+        #nav-logged-in {
+            display: none;
+            margin-left: auto
+        }
+
+        .text-0-2-112 {
+            font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 16px;
+            font-weight: 400
+        }
+
+        #nav-logged-in .icon-nav-robux,
+        .icon-nav-tix,
+        .icon-nav-notification,
+        .icon-nav-settings {
+            cursor: pointer
+        }
+
+        #nav-logged-in p {
+            white-space: nowrap
+        }
+
+        #nav-menu {
+            cursor: pointer
+        }
+
+        @media (min-width:1688px) {
+            #nav-menu {
+                display: none
+            }
+        }
+
+        #nav-logged-in .dropdown-menu {
+            min-width: 122px;
+            box-sizing: border-box;
+            border: 1px solid rgb(214, 214, 214);
+            padding: 0;
+            width: fit-content;
+        }
+
+        #nav-logged-in .arrow {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid white;
+            top: -5px
+        }
+
+        .dropdown-menu li {
+            /*width:fit-content !important;*/
+            width: 100% !important;
+            text-align: left !important;
+            clear: left;
+            float: left !important
+        }
+
+        #nav-logged-in .dropdown-menu li {
+            padding: 0px 6px;
+        }
+
+        .dropdown-menu li:hover {
+            cursor: pointer;
+            background-color: #F2F2F2;
+            box-shadow: 4px 0 0 0 #00A2FF inset;
+        }
+
+        .dropdown-menu li a {
+            width: 100% !important;
+            color: rgb(24, 24, 24) !important;
+            float: left !important
+        }
+
+        #nav-logged-in .dropdown-menu li a {
+            padding: 10px 6px !important;
+            height: 40px
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: transparent !important;
+            text-decoration: none !important;
+        }
+
+        #robux-menu {
+            right: 62.5px;
+            /*right:min(calc(0.125 * 250px), 12.5%);
+        }
+        #tix-menu{
+            right:min(calc(0.0625 * 250px), 6.25%);*/
+        }
+
+        .robux-header h1 {
+            font-weight: 400;
+            font-size: 36px;
+            margin: 0;
+            color: black;
+            letter-spacing: 0px;
+            padding: 5px 0px
+        }
+
+        #RobuxContainer {
+            margin: 0px 12px;
+            margin: 0px
+        }
+
+        .btn-primary-md:hover,
+        .btn-control-xs:hover,
+        .btn-primary-sm:hover {
+            text-decoration: none;
+        }
+
+        .icon-robux-28x28 {
+            background-image: url(/static/2019robux.svg);
+            background-repeat: no-repeat;
+            background-size: auto auto;
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            vertical-align: middle
+        }
+
+        .container-footer {
+            position: relative
+        }
+
+        .rbx-input-field:not(#navbar-search-input):focus {
+            box-shadow: none;
+            border-color: #00A2FF;
+        }
+
+        .divider {
+            border-bottom: 2px solid rgb(195, 195, 195);
+        }
+
+        .rect-ad,
+        .skyscraper {
+            user-select: none;
+        }
+
+        #header {
+            z-index: 3
+        }
+
+        .banner-ad {
+            /*display:block;*/
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (max-width: 728px) {
+            .banner-ad {
+                display: none;
+            }
+        }
+
+        .btn-control-md:disabled:hover {
+            cursor: default;
+            box-shadow: none;
+        }
+
+        a[class*="btn-"]:hover {
+            text-decoration: none
+        }
+
+        button[class*="btn-"]:hover a {
+            text-decoration: none
+        }
+
+        #RobuxContainer h3 {
+            font-size: 24px;
+            font-weight: 300;
+        }
+    </style>
+    <meta name="author" content="calub.js">
+    <meta name="description"
+        content="BOBLOX is powered by a growing community of creators who produce an infinite variety of highly immersive games. These games range from 3D multiplayer games and competitions, to interactive adventures where friends can take on new personas imagining what it would be like to be a dinosaur, a miner in a quarry or an astronaut on a space exploration.">
+    <meta name="keywords"
+        content="free games, online games, building games, virtual worlds, free mmo, gaming cloud, physics engine">
+    <meta name="title" content="BOBLOX">
+</head>
+
+<body>
+    <div id="header" class="navbar-fixed-top rbx-header" role="navigation">
+        <div class="container-fluid">
+            <div class="rbx-navbar-header">
+                <span class="text-0-2-112" style="display:inline-block;float:left;margin-top:6px;display:none"><span
+                        class="icon-nav-menu settingsIcon-0-2-114" id="nav-menu"></span></span>
+                <div data-behavior="nav-notification" class="rbx-nav-collapse" onselectstart="return false;">
+
+                    <div class="rbx-nav-notification hide xsmall" title="0">
+
+                    </div>
+
+                </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/"><span class="logo logo-transitional"></span></a>
+                </div>
+            </div>
+            <ul class="nav rbx-navbar hidden-xs hidden-sm col-md-4 col-lg-3">
+                <li>
+                    <a href="/games">Games</a>
+                </li>
+                <li>
+                    <a href="/catalog">Catalog</a>
+                </li>
+                <li>
+                    <a href="/develop">Develop</a>
+                </li>
+                <li>
+                    <a class="buy-robux" href="/upgrades/robux">BOBUX</a>
+                </li>
+            </ul><!--rbx-navbar-->
+            <div id="navbar-universal-search" class="navbar-left rbx-navbar-search col-xs-5 col-sm-6 col-md-3"
+                data-behavior="univeral-search" role="search">
+                <div class="input-group rbx-input-group">
+
+                    <input id="navbar-search-input" class="form-control rbx-input-field" type="text"
+                        placeholder="join the discord pls" maxlength="120">
+                    <div class="input-group-btn rbx-input-group-btn">
+                        <button id="navbar-search-btn" class="rbx-input-addon-btn" type="submit"
+                            style="border-radius:0px 3px 3px 0px">
+                            <span class="icon-nav-search"></span>
+                        </button>
+                    </div>
+                </div>
+                <ul data-toggle="dropdown-menu" class="rbx-dropdown-menu" role="menu">
+                    <li class="rbx-navbar-search-option selected"
+                        data-searchurl="http://www.roblox.com/search/users?keyword=">
+                        <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in
+                            People</span>
+                    </li>
+                    <li class="rbx-navbar-search-option" data-searchurl="https://www.roblox.com/games/?Keyword=">
+                        <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in
+                            Games</span>
+                    </li>
+                    <li class="rbx-navbar-search-option"
+                        data-searchurl="http://www.roblox.com/catalog/browse.aspx?CatalogContext=1&amp;Keyword=">
+                        <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in
+                            Catalog</span>
+                    </li>
+                    <li class="rbx-navbar-search-option" data-searchurl="http://www.roblox.com/groups/search.aspx?val=">
+                        <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in
+                            Groups</span>
+                    </li>
+                    <li class="rbx-navbar-search-option"
+                        data-searchurl="http://www.roblox.com/develop/library?CatalogContext=2&amp;Category=6&amp;Keyword=">
+                        <span class="rbx-navbar-search-text">Search <span class="rbx-navbar-search-string"></span> in
+                            Library</span>
+                    </li>
+                </ul>
+            </div><!--rbx-navbar-search-->
+            <div class="navbar-right rbx-navbar-right col-xs-4 col-sm-3">
+                <ul class="nav navbar-right rbx-navbar-right-nav" data-display-opened="False">
+                    <li id="login">
+                        <a id="header-login" class="rbx-navbar-login" data-behavior="login" data-toggle="popover"
+                            data-bind="popover-login" data-viewport="#header" data-original-title="" title="">Log In</a>
+                    </li>
+                    <div id="iFrameLogin" class="rbx-popover-content" data-toggle="popover-login" role="menu">
+                        <div class="arrow" style="left: 83.9429%;"></div>
+                        <iframe id="iframe-login" name="iframe-nav-login" class="rbx-navbar-login-iframe" src="/login"
+                            scrolling="no" frameborder="0" width="320" data-ruffle-polyfilled=""
+                            style="height: 220px;"></iframe>
+                    </div>
+                    <li id="signup">
+                        <a class="rbx-navbar-signup" href="/">Sign Up</a>
+                    </li>
+                    <li class="rbx-navbar-right-search" data-toggle="toggle-search">
+                        <a class="rbx-menu-icon" id="searchToggle">
+                            <span class="icon-nav-search-white"></span>
+                        </a>
+                    </li>
+                    <span id="nav-logged-in" style="max-width:250px">
+                        <li>
+                            <p class="text-0-2-112"><span class="icon-nav-notification"></span></p>
+                        </li>
+                        <li>
+                            <p class="text-0-2-112"><span class="icon-nav-robux" id="nav-robux"></span><span
+                                    style="margin-left:5px;margin-right:0px" id="robux">0</span></p>
+                        </li>
+                        <li>
+                            <p class="text-0-2-112"><span class="icon-nav-tix" id="nav-tix"></span><span
+                                    style="margin-left:5px;margin-right:0px" id="tix">0</span></p>
+                        </li>
+                        <li>
+                            <p class="text-0-2-112"><span class="icon-nav-settings settingsIcon-0-2-114"
+                                    id="nav-settings"></span></p>
+                        </li>
+                        <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu" id="settings-menu">
+                            <div class="arrow" style="right:22.25px"></div>
+                            <li style="border-radius:3px 3px 0px 0px;border-radius:0px">
+                                <span><a href="/settings">Settings</a></span>
+                            </li>
+                            <li style="border-radius:0px 0px 3px 3px;border-radius:0px">
+                                <span><a id="logout">Logout</a></span>
+                            </li>
+                        </ul>
+                        <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu" id="tix-menu">
+                            <div class="arrow" style="right:104.75px"></div>
+                            <li style="border-radius:3px;border-radius:0px">
+                                <span><a href="/trade" id="tix-count">0 Tickets</a></span>
+                            </li>
+                        </ul>
+                        <ul data-toggle="dropdown-menu" class="dropdown-menu" role="menu" id="robux-menu">
+                            <div class="arrow" style="right:94.75px"></div>
+                            <li style="border-radius:3px 3px 0px 0px;border-radius:0px">
+                                <span><a href="/trade" id="robux-count">0 BOBUX</a></span>
+                            </li>
+                            <li style="border-radius:0px 0px 3px 3px;border-radius:0px">
+                                <span><a href="/upgrades/robux">Buy BOBUX</a></span>
+                            </li>
+                        </ul>
+                    </span>
+                </ul>
+            </div><!-- navbar right-->
+            <ul class="nav rbx-navbar hidden-md hidden-lg col-xs-12">
+                <li>
+                    <a href="/games">Games</a>
+                </li>
+                <li>
+                    <a href="/catalog/">Catalog</a>
+                </li>
+                <li>
+                    <a href="/develop">Develop</a>
+                </li>
+                <li>
+                    <a class="buy-robux" href="/upgrades/robux">BOBUX</a>
+                </li>
+            </ul><!--rbx-navbar-->
+        </div>
+    </div>
+    <div id="content" class="container-main"></div>
+    <footer class="container-footer">
+        <div class="footer">
+            <ul class="row footer-links">
+                <li class="col-4 col-xs-2 footer-link">
+                    <a href="https://github.com/imightexist/calubjs" class="text-footer-nav roblox-interstitial"
+                        target="_blank">calub.js</a>
+                </li>
+                <li class="col-4 col-xs-2 footer-link">
+                    <a href="https://reddit.com/r/bobloxgame" class="text-footer-nav roblox-interstitial"
+                        target="_blank">Reddit</a>
+                </li>
+                <li class="col-4 col-xs-2 footer-link">
+                    <a href="#" class="text-footer-nav" target="_blank">YouTube</a>
+                </li>
+                <li class="col-4 col-xs-2 footer-link">
+                    <a href="https://discord.gg/PtEPwUP8qG" class="text-footer-nav" target="_blank" style="
+        color: #00A2FF;
+    ">Discord</a>
+                </li>
+                <li class="col-4 col-xs-2 footer-link">
+                    <a href="/info/terms-of-service" class="text-footer-nav roblox-interstitial"
+                        target="_blank">Terms</a>
+                </li>
+                <li class="col-4 col-xs-2 footer-link">
+                    <a href="/info/privacy" class="text-footer-nav roblox-interstitial" target="_blank">Privacy</a>
+                </li>
+            </ul>
+            <p id="footer-note" class="text-footer footer-note" style="text-align: center;">BOBLOX is not affiliated
+                with Roblox Corporation. Accessing this site signifies your acceptance of the Terms and Conditions
+                unless otherwise stated. BOBLOX Indev</p>
+        </div>
+    </footer>
+    <div id="game-launch-container">
+        <div id="game-launch">
+            <img src="/static/boblox icon.svg" id="game-launch-logo">
+            <p>BOBLOX is now loading. Get ready to play!</p>
+            <img src="/static/getreadytoplay.gif" id="game-launch-loading">
+        </div>
+    </div>
+    <script>
+        document.getElementById("header-login").addEventListener("click", function (e) {
+            if (document.getElementById("iFrameLogin").classList.contains("fade")) {
+                document.getElementById("iFrameLogin").classList.remove("in")
+                setTimeout(function () {
+                    document.getElementById("iFrameLogin").classList.remove("fade")
+                }, 150)
+            } else {
+                document.getElementById("iFrameLogin").classList.add("fade")
+                setTimeout(function () {
+                    document.getElementById("iFrameLogin").classList.add("in")
+                }, 150)
+            }
+        })
+        document.getElementById("nav-settings").addEventListener("click", function (e) {
+            if (document.getElementById("settings-menu").classList.contains("fade")) {
+                document.getElementById("settings-menu").classList.remove("in")
+                setTimeout(function () {
+                    document.getElementById("settings-menu").classList.remove("fade")
+                }, 150)
+            } else {
+                document.getElementById("settings-menu").classList.add("fade")
+                setTimeout(function () {
+                    document.getElementById("settings-menu").classList.add("in")
+                }, 150)
+            }
+        })
+        document.getElementById("nav-tix").addEventListener("click", function (e) {
+            if (document.getElementById("tix-menu").classList.contains("fade")) {
+                document.getElementById("tix-menu").classList.remove("in")
+                setTimeout(function () {
+                    document.getElementById("tix-menu").classList.remove("fade")
+                }, 150)
+            } else {
+                document.getElementById("tix-menu").classList.add("fade")
+                setTimeout(function () {
+                    document.getElementById("tix-menu").classList.add("in")
+                }, 150)
+            }
+        })
+        document.getElementById("nav-robux").addEventListener("click", function (e) {
+            if (document.getElementById("robux-menu").classList.contains("fade")) {
+                document.getElementById("robux-menu").classList.remove("in")
+                setTimeout(function () {
+                    document.getElementById("robux-menu").classList.remove("fade")
+                }, 150)
+            } else {
+                document.getElementById("robux-menu").classList.add("fade")
+                setTimeout(function () {
+                    document.getElementById("robux-menu").classList.add("in")
+                }, 150)
+            }
+        })
+        document.addEventListener("click", function (e) {
+            if (document.getElementById("iFrameLogin").classList.contains("fade") && e.target != document.getElementById("header-login")) {
+                document.getElementById("iFrameLogin").classList.remove("in")
+                setTimeout(function () {
+                    document.getElementById("iFrameLogin").classList.remove("fade")
+                }, 150)
+            }
+            if (document.getElementById("settings-menu").classList.contains("fade") && e.target != document.getElementById("nav-settings")) {
+                document.getElementById("settings-menu").classList.remove("in")
+                setTimeout(function () {
+                    document.getElementById("settings-menu").classList.remove("fade")
+                }, 150)
+            }
+            if (document.getElementById("tix-menu").classList.contains("fade") && e.target != document.getElementById("nav-tix")) {
+                document.getElementById("tix-menu").classList.remove("in")
+                setTimeout(function () {
+                    document.getElementById("tix-menu").classList.remove("fade")
+                }, 150)
+            }
+            if (document.getElementById("robux-menu").classList.contains("fade") && e.target != document.getElementById("nav-robux")) {
+                document.getElementById("robux-menu").classList.remove("in")
+                setTimeout(function () {
+                    document.getElementById("robux-menu").classList.remove("fade")
+                }, 150)
+            }
+        })
+        document.getElementById("searchToggle").addEventListener("click", function (e) {
+            if (document.getElementById("navbar-universal-search").style.display == "block") {
+                document.getElementById("navbar-universal-search").style.display = ""
+            } else {
+                document.getElementById("navbar-universal-search").style.display = "block"
+            }
+        })
+        document.getElementById("logout").addEventListener("click", function (e) {
+            fetch("/api/logout", { method: "POST" }).then(function (res) {
+                if (res.status == 200) {
+                    location.reload()
+                }
+            })
+        })
+        document.getElementById("game-launch-container").addEventListener("click", function (e) {
+            if (e.target != document.getElementById("game-launch") && !document.getElementById("game-launch").contains(e.target)) {
+                document.getElementById("game-launch-container").style.display = ""
+            }
+        })
+    </script>
+</body>
+
+</html>

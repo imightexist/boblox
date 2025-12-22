@@ -1,0 +1,124 @@
+<style>
+    .rbx-header{
+        background-color:#00A054
+    }
+    .skyscraper{
+        display:none;
+        margin:0px auto;
+        margin-left:24px
+    }
+    @media (min-width: 1174px) {
+        .skyscraper {
+            display: inline-block
+        }
+        .content{
+            max-width:max-content;
+            max-width:1158px;
+        }
+        #RobuxContainer{
+            width:100%;
+            max-width:970px;
+            display:inline-block;
+            vertical-align:top;
+        }
+    }
+    .banner-ad{
+        margin-bottom:15px
+    }
+    .carousel {
+        width: 640px;
+        height: 360px;
+        position: relative;
+        margin: 0px auto;
+        float:left
+    }
+    .game-main-content .game-calls-to-action {
+        width: calc(100% - 640px);
+        float: left;
+        padding: 0px 12px 0px 24px;
+    }
+    .game-main-content .game-calls-to-action .game-name {
+        overflow: hidden;
+        letter-spacing:0px;
+        font-weight:400
+    }
+    .game-main-content .game-play-buttons {
+        text-align: center;
+        padding: 36px 12px;
+        border-top: 1px solid rgb(227, 227, 227);
+        border-bottom: 1px solid rgb(227, 227, 227);
+    }
+    .game-play-buttons a{
+        min-width:88%
+    }
+    .game-main-content .share-rate-favorite {
+        margin: 12px 0px 0px;
+    }
+    @media (max-width: 1174px) {
+        #RobuxContainer {
+            float: none;
+            margin: 0px auto;
+            padding: 0px 12px;
+        }
+    }
+    @media (max-width: 991px) {
+        .carousel {
+            width: 100%;
+            height: auto;
+            height:432px;
+            max-width: 768px;
+            float:none
+        }
+        .game-main-content .game-thumb-container, .game-main-content .game-calls-to-action {
+            float: none;
+            width: 100%;
+        }
+        .game-main-content .game-play-buttons {
+            padding: 24px 12px;
+        }
+        .game-title-container{
+            height:auto !important
+        }
+    }
+    .game-main-content .game-calls-to-action .game-title-container {
+        height: 172px;
+        padding: 0px 12px 0px 0px;
+    }
+</style>
+<div class="content">
+    <div class="banner-ad"><a><img src="/static/banner.jpg"></a></div>
+    <div id="RobuxContainer">
+        <div class="col-xs-12 section-content game-main-content">
+            <div class="game-thumb-container">
+                <div id="carousel-game-details" class="carousel slide"></div>
+            </div>
+            <div class="game-calls-to-action">
+                <div class="game-title-container">
+                    <h2 class="game-name">albert's Place</h2>
+                    <div class="game-creator"><span class="text-label">By</span> <a class="text-name" href="/users/0/profile">albert</a></div>
+                </div>
+                <div class="game-play-buttons">
+                    <div id="game-play">
+                        <a class="btn-primary-lg">Play</a>
+                    </div>
+                </div>
+                <ul class="share-rate-favorite">
+                    <li class="favorite-button-container">
+                        <div class="tooltip-container"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="skyscraper"><a><img src="/static/skyscraper.jpg"></a></span>
+</div>
+<script>
+    document.title="albert's Place - BOBLOX"
+    document.getElementById('game-play').addEventListener('click',function(){
+        let iframe = document.createElement('iframe')
+        iframe.src = "roblox://placeId=114407924298284"
+        iframe.style.display = "none"
+        document.getElementById('content').appendChild(iframe)
+        document.getElementById('game-launch-container').style.display="flex"
+    })
+</script>

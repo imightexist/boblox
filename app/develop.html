@@ -1,0 +1,533 @@
+<style>
+    .rbx-header {
+        background-color: #FF8B00
+    }
+
+    /* ~/CSS/Pages/Build/StudioSplashScreen.css */
+    .form-inline {
+        position: static;
+    }
+
+    .modal-header .icon-close {
+        background-position: 0 -420px;
+        background-size: 40px auto;
+        width: 20px;
+        height: 20px;
+        vertical-align: top;
+    }
+
+    .content {
+        width: 100%;
+        padding-top: 0;
+        max-width: none;
+    }
+
+    #StudioSplashScreen p {
+        word-break: normal;
+    }
+
+    #StudioSplashScreen .header-container a,
+    #StudioSplashScreen .blurbs-container a {
+        color: #00A2FF;
+    }
+
+    #StudioSplashScreen .header-bg-container {
+        background-color: black;
+        padding: 0;
+    }
+
+    #StudioSplashScreen .header-bg {
+        background: url(/static/img_instudio.jpg) no-repeat black;
+        background-position: 50% 0;
+    }
+
+    @media(max-width:991px) {
+        #StudioSplashScreen .header-bg {
+            background-size: auto;
+        }
+
+        #StudioSplashScreen .header-bg-container {
+            padding: 0;
+        }
+    }
+
+    @media(max-width:767px) {
+        #StudioSplashScreen .header-bg {
+            background-size: auto;
+        }
+
+        #StudioSplashScreen .header-bg-container {
+            padding: 0;
+        }
+    }
+
+    #StudioSplashScreen .header-container {
+        text-align: center;
+        padding: 12px 12px 24px;
+        width: 970px;
+        margin: 0 auto;
+    }
+
+    @media(max-width:543px) {
+        #StudioSplashScreen .header-container .header-text {
+            display: none;
+        }
+    }
+
+    #StudioSplashScreen .header-container .mobile-text-header {
+        display: none;
+    }
+
+    @media(max-width:543px) {
+        #StudioSplashScreen .header-container .mobile-text-header {
+            display: block;
+        }
+    }
+
+    #StudioSplashScreen .header-container h3 {
+        color: white;
+        margin-top: 24px;
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+
+    #StudioSplashScreen .header-container p {
+        color: white;
+        width: 75%;
+        margin: 6px auto 0 auto;
+    }
+
+    #StudioSplashScreen .header-container .studio-icon {
+        width: 492px;
+        margin: 20px auto 0 auto;
+    }
+
+    #StudioSplashScreen .header-container button {
+        margin-top: 24px;
+        border: none;
+    }
+
+    @media(max-width:991px) {
+        #StudioSplashScreen .header-container {
+            width: 80%;
+            padding: 20px 0 24px;
+        }
+
+        #StudioSplashScreen .header-container .studio-icon {
+            width: 369px;
+        }
+
+        #StudioSplashScreen .header-container button {
+            display: none;
+        }
+
+        #StudioSplashScreen .header-container p {
+            width: 100%;
+        }
+
+        #StudioSplashScreen .header-container p br {
+            display: none;
+        }
+    }
+
+    @media(max-width:767px) {
+        #StudioSplashScreen .header-container {
+            width: 250px;
+        }
+    }
+
+    @media(max-width:767px) {
+        #StudioSplashScreen .header-container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            padding-bottom: 24px;
+        }
+
+        #StudioSplashScreen .header-container .studio-icon {
+            width: 250px;
+        }
+
+        #StudioSplashScreen .header-container button {
+            display: none;
+        }
+
+        #StudioSplashScreen .header-container p {
+            width: 100%;
+        }
+
+        #StudioSplashScreen .header-container p br {
+            display: none;
+        }
+    }
+
+    #StudioSplashScreen .content-container {
+        width: 970px;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+
+    #StudioSplashScreen .content-container .mobile-text {
+        display: none;
+    }
+
+    @media(max-width:543px) {
+        #StudioSplashScreen .content-container .mobile-text {
+            display: block;
+            text-align: center;
+        }
+
+        #StudioSplashScreen .content-container .mobile-text .mobile-icons {
+            margin: 0 auto;
+        }
+
+        #StudioSplashScreen .content-container .mobile-text .mobile-icons img {
+            padding: 5px;
+        }
+    }
+
+    #StudioSplashScreen .blurbs-container {
+        position: relative;
+    }
+
+    #StudioSplashScreen .blurbs-container:before,
+    #StudioSplashScreen .blurbs-container:after {
+        content: " ";
+        display: table;
+    }
+
+    #StudioSplashScreen .blurbs-container:after {
+        clear: both;
+    }
+
+    #StudioSplashScreen .blurbs-container p.text-lead {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    #StudioSplashScreen .blurbs-container .blurb {
+        float: left;
+        width: 33.33333%;
+        min-height: 195px;
+        padding: 12px 0;
+    }
+
+    #StudioSplashScreen .blurbs-container .blurb:nth-of-type(2) {
+        padding: 12px 24px;
+    }
+
+    #StudioSplashScreen .blurbs-container .blurb.under-13-section {
+        width: 50%;
+    }
+
+    #StudioSplashScreen .blurbs-container .blurb.under-13-section:nth-of-type(1) {
+        padding: 12px 12px 12px 0;
+    }
+
+    #StudioSplashScreen .blurbs-container .blurb.under-13-section:nth-of-type(2) {
+        padding: 12px 0 12px 12px;
+    }
+
+    #StudioSplashScreen .blurbs-container .blurb .section-content {
+        min-height: 280px;
+    }
+
+    @media(max-width:991px) and (min-width:767px) {
+        #StudioSplashScreen .blurbs-container .blurb .section-content {
+            min-height: 380px;
+        }
+    }
+
+    #StudioSplashScreen .blurbs-container img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+    }
+
+    #StudioSplashScreen .blurbs-container p,
+    #StudioSplashScreen .blurbs-container ul {
+        position: relative;
+        z-index: 1;
+    }
+
+    #StudioSplashScreen .blurbs-container .dev-engine-list {
+        margin-left: 10px;
+        font-weight: 300;
+    }
+
+    #StudioSplashScreen .blurbs-container .dev-engine-list li {
+        list-style-type: disc;
+    }
+
+    @media(max-width:991px) {
+        #StudioSplashScreen .content-container {
+            width: auto;
+            padding-top: 12px;
+            margin: 0 12px;
+        }
+
+        #StudioSplashScreen .blurbs-container {
+            width: 100%;
+        }
+
+        #StudioSplashScreen .blurbs-container .blurb {
+            min-height: 280px;
+        }
+
+        #StudioSplashScreen .blurbs-container p {
+            margin: 0;
+        }
+
+        #StudioSplashScreen .blurbs-container p.text-lead {
+            height: 45px;
+            margin-bottom: 12px;
+        }
+    }
+
+    @media(max-width:767px) {
+        #StudioSplashScreen .content-container {
+            width: auto;
+            padding-top: 12px;
+            margin: 0 12px;
+        }
+
+        #StudioSplashScreen .blurbs-container {
+            width: 100%;
+        }
+
+        #StudioSplashScreen .blurbs-container p.text-lead {
+            text-align: left;
+            height: auto;
+            margin-bottom: 8px;
+        }
+
+        #StudioSplashScreen .blurbs-container p:nth-of-type(2) {
+            width: 70%;
+        }
+
+        #StudioSplashScreen .blurbs-container .blurb,
+        #StudioSplashScreen .blurbs-container .blurb.under-13-section {
+            width: 100%;
+            min-height: 0;
+            text-align: left;
+        }
+
+        #StudioSplashScreen .blurbs-container .blurb:nth-of-type(2) {
+            margin: 12px 0 0 0;
+            padding: 12px 0;
+        }
+    }
+
+    @media(max-width:543px) {
+        #StudioSplashScreen .blurbs-container p:nth-of-type(2) {
+            width: 100%;
+        }
+    }
+
+    .links-container.narrow {
+        display: none;
+    }
+
+    .links-container {
+        width: 970px;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
+    .links-container a {
+        float: right;
+    }
+
+    .links-container a span:nth-of-type(1) {
+        float: left;
+    }
+
+    .links-container a span:nth-of-type(2) {
+        display: block;
+        margin-top: 4px;
+        text-align: center;
+    }
+
+    .links-container a:not(:first-of-type) {
+        margin-right: 12px;
+    }
+
+    .links-container .resources-title {
+        margin-top: 12px;
+        float: left;
+    }
+
+    @media(max-width:991px) {
+        .links-container.narrow {
+            display: block;
+        }
+
+        .links-container.wide {
+            display: none;
+        }
+
+        .links-container {
+            width: 100%;
+        }
+
+        .links-container a {
+            width: 31%;
+            float: left;
+        }
+
+        .links-container a:nth-of-type(1) {
+            margin: 0 1%;
+        }
+
+        .links-container a:nth-of-type(2) {
+            margin: 0 1%;
+        }
+
+        .links-container a:nth-of-type(3) {
+            margin: 0 1%;
+        }
+
+        .links-container a span:nth-of-type(2) {
+            margin-left: 0;
+        }
+
+        .links-container .resources-title {
+            margin-top: 0;
+            margin-left: 1%;
+            margin-bottom: 12px;
+            float: none;
+        }
+    }
+
+    @media(max-width:767px) {
+        .links-container.narrow {
+            display: block;
+        }
+
+        .links-container.wide {
+            display: none;
+        }
+
+        .links-container {
+            width: 100%;
+            padding: 0;
+        }
+
+        .links-container a:nth-of-type(1),
+        .links-container a:nth-of-type(2),
+        .links-container a:nth-of-type(3),
+        .links-container a {
+            width: 100%;
+            margin: 12px 0 0 0;
+            text-align: center;
+        }
+
+        .links-container a span:first-of-type {
+            float: none;
+        }
+
+        .links-container a span:nth-of-type(2) {
+            position: relative;
+            top: 3px;
+        }
+
+        .links-container .resources-title {
+            width: 100%;
+            padding-top: 12px;
+            margin: 0;
+            float: none;
+        }
+    }
+
+    /*FILE ARCHIVED ON 02:04:02 Jan 04, 2018 AND RETRIEVED FROM THEINTERNET ARCHIVE ON 18:07:42 Aug 01, 2025.JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.SECTION 108(a)(3)).*/
+    /*playback timings (ms):captures_list: 0.729exclusion.robots: 0.041exclusion.robots.policy: 0.019esindex: 0.017cdx.remote: 8.71LoadShardBlock: 43.618 (3)PetaboxLoader3.datanode: 55.374 (5)load_resource: 360.205 (2)PetaboxLoader3.resolve: 286.449 (2)*/
+    #content {
+        padding-top: 0px
+    }
+</style>
+<li id="StudioSplashScreen" data-authentication-url="https://www.roblox.com/Login/Negotiate.ashx">
+    <div class="header-bg-container">
+        <div class="header-bg">
+            <div class="header-container">
+                <h1></h1><img class="studio-icon" src="/static/boblox 2.svg">
+                    <h3 style="">
+                    </h3>
+                    <h3>⠀⠀⠀⠀⠀⠀⠀⠀⠀JOIN THE #1 USER-GENERATED GAMING COMMUNITY</h3>
+                    ⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    <div></div>
+                    <p class="header-text">Our FREE platform enables anyone to push the limits of their imagination by
+                        creating immersive 3D multiplayer games and easily publish them to millions of players.</p>
+                    <p class="mobile-text-header">Download ROBLOX Studio - available on PC and Mac to get started!</p>
+                    <button type="button" id="studio-launch" class="studio-launch btn-primary-md"><a
+                            href="https://boblox.collabai.lol/static/BobloxStudio.7z" style="color:white" target="_blank">Open BOBLOX
+                            Studio</a></button>
+                    <p><a id="dev-page-link" class="small" href="http://boblox.collabai.lol/develop">Continue to Develop
+                            page</a></p>
+                </big>
+            </div>
+        </div>
+    </div>
+    <div class="content-container">
+        <ul class="blurbs-container">
+            <li class="blurb gear">
+                <div class="section-content">
+                    <p class="text-lead">All-In-One Development Engine</p>
+                    <p>Our best-in-class authoring environment allows creators to build immersive 3D cross-platform
+                        games and launch them simultaneously on PC, Mac, iOS and Android devices, Xbox One and Oculus
+                        Rift.</p><br>
+                    <ul class="dev-engine-list">
+                        <li>Built-in multiplayer and monetization tools</li>
+                        <li>One-click publishing</li>
+                        <li>Free cloud hosting</li>
+                        <li>Robust asset library</li>
+                    </ul><img
+                        src="/static/dSettings.png">
+                </div>
+            </li>
+            <li class="blurb friends">
+                <div class="section-content">
+                    <p class="text-lead">Reach Millions of Players</p>
+                    <p>Connect with a massive audience by tapping into an incredibly enthusiastic and international
+                        community of over 28 million monthly players.</p><img
+                        src="/static/dFriend.png">
+                </div>
+            </li>
+            <li class="blurb money">
+                <div class="section-content">
+                    <p class="text-lead">Control Your Monetization</p>
+                    <p>Our shared economy gives you full control of your in-game monetization. Top developers are on
+                        track to earn $20,000 to $50,000 per month from our DevEx program. We’ve paid out over $6
+                        million dollars to developers to date.</p><img
+                        src="/static/dBobux.png">
+                </div>
+            </li>
+        </ul>
+        <div class="mobile-text">
+            <p>Download ROBLOX Studio - available</p>
+            <p>on PC and Mac to get started!</p>
+            <div class="mobile-icons"><img
+                    src="http://web.archive.org/web/20171231141659im_/https://images.rbxcdn.com/647107c6fdfd5d84a150150220a4d2c4.png">
+                <img
+                    src="http://web.archive.org/web/20171231141659im_/https://images.rbxcdn.com/be40338612aa9db956e3c473d99e424d.png">
+            </div>
+        </div>
+        <div class="links-container wide"><a id="wiki-link" class="btn-control-md" target="_blank"
+                href="http://en.wikipedia.org/wiki/Roblox"><span>BOBLOX Wiki</span></a> <a id="roblox-u-link"
+                class="btn-control-md" target="_blank"
+                href="http://youtu.be/SkMLcBPXHUA?list=PLuEQ5BB-Z1PLiLI_As4MC3SMS5Gwbwl40"><span>BOBLOX
+                    University</span></a>
+            <div class="clearfix"></div>
+        </div>
+        <div class="links-container narrow"><a id="roblox-u-link" class="btn-control-md"
+                href="http://web.archive.org/web/20171231141659/http://youtu.be/SkMLcBPXHUA?list=PLuEQ5BB-Z1PLiLI_As4MC3SMS5Gwbwl40"
+                target="_blank"><span>BOBLOX University</span></a> <a id="wiki-link" class="btn-control-md"
+                href="http://web.archive.org/web/20171231141659/http://wiki.roblox.com/" target="_blank"><span>BOBLOX
+                    Wiki</span></a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</li>
+<script>
+    document.title = "Develop - BOBLOX"
+</script>

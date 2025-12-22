@@ -1,0 +1,325 @@
+<link rel="stylesheet" href="/static/splash.css">
+<style>
+    body {
+        background-image: url(/static/roller.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display:inline-block;
+        height:100vh
+    }
+    @media(min-width:991px){
+        body{
+            /*overflow-y:hidden;*/
+            position:absolute;
+            top:0;
+            z-index:0
+        }
+        #content{
+            background:none
+        }
+    }
+    @media(max-height:538.09px){
+        body{
+            overflow-y:visible;
+        }
+        #footer{
+            top:calc(100vh - 538.09px)
+        }
+    }
+
+    .rbx-header {
+        background-color: rgba(0, 0, 0, 0.35);
+        z-index:1
+    }
+
+    #signup {
+        display: none
+    }
+    .container-footer{
+        padding:12px;
+        position:relative;
+        z-index:-1
+    }
+    #content{
+        /*background-image: url(/static/roller.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;*/
+        height:100vh;
+        margin-bottom:0px
+    }
+    .input-validation{
+        font-size:16px;
+        font-weight:300
+    }
+    #GeneralErrorText{
+        display:none;
+        font-weight:300
+    }
+</style>
+<div class="col-xs-12 col-md-6">
+    <div id="MainLogo" class="text-right">
+        <div id="LogoAndSlogan" class="text-center">
+            <img id="MainLogoImage" title="ROBLOX" class="center-block img-responsive" src="/static/boblox 2.svg">
+            <div class="clearfix"></div>
+            <h1>Powering Imagination<span style="display:none"> ™ </span></h1>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-md-6" style="position:relative;top:25px">
+    <div id="SignUpFormContainer" data-return-url="" style="margin-bottom:30px">
+
+        <div class="" data-parent-url="" data-is-from-studio="false" data-is-facebook-button-shown="false">
+            <div class="rbx-login-partial-legacy">
+                <h3 class="text-center signup-header" style="display:block">
+                    Sign up and start having fun!
+                </h3>
+                <h3 class="text-center login-header" style="display: none;">
+                    Log in and start having fun!
+                </h3>
+
+
+                <style type="text/css">
+                    .male {
+                        background-image: url('/static/male.png');
+                        background-repeat: no-repeat;
+                    }
+
+                    .female {
+                        background-image: url('/static/female.png');
+                        background-repeat: no-repeat;
+                    }
+                </style>
+
+                <div class="signup-or-log-in new-username-pwd-rule ng-scope" ng-modules="SignupOrLogin"
+                    ng-controller="SignupOrLoginController"
+                    data-metadata-params="{&quot;isEligibleForHideAdsAbTest&quot;:&quot;True&quot;}"
+                    data-v2-username-password-rules-enabled="1" data-is-login-default-section="false">
+
+
+
+                    <div class="signup-container ng-scope" ng-controller="SignupController" ng-show="isSectionShown">
+                        <div class="signup-input-area ng-invalid ng-invalid-birthday ng-invalid-match ng-dirty ng-valid-validusername ng-valid-password"
+                            ng-form="" name="signupForm" rbx-form-context="" context="RollerCoaster">
+                            <div class="form-group"
+                                ng-class="{'has-error' : (badSubmit || signupForm.username.$dirty) &amp;&amp; signupForm.username.$invalid, 'has-success': (signupForm.username.$dirty &amp;&amp; signupForm.username.$valid) }">
+                                <input id="signup-username" ng-trim="false" ng-change="onChange()" name="username"
+                                    class="form-control input-field ng-dirty ng-valid ng-valid-validusername ng-valid-unique ng-valid-moderated"
+                                    type="bobloxUsername" tabindex="1" rbx-valid-username="" rbx-form-interaction=""
+                                    rbx-form-validation="" placeholder="Username (don't use your real name)" value=""
+                                    ng-model="signup.username" autocomplete="off">
+                                <p id="signup-usernameInputValidation"
+                                    class="form-control-label input-validation text-error ng-binding"
+                                    ng-bind="(badSubmit || signupForm.username.$dirty) ? signupForm.username.$validationMessage : ''">
+                                </p>
+                            </div>
+                            <div class="form-group"
+                                ng-class="{'has-error' : (badSubmit || signupForm.password.$dirty) &amp;&amp; signupForm.password.$invalid, 'has-success': (signupForm.password.$dirty &amp;&amp; signupForm.password.$valid) }">
+                                <input id="signup-password" ng-trim="false" name="password"
+                                    class="form-control input-field ng-dirty ng-valid ng-valid-password" type="password"
+                                    tabindex="2" rbx-valid-password="" rbx-form-interaction="" rbx-form-validation=""
+                                    rbx-form-validation-redact-input="" placeholder="Password (minimum length 8)"
+                                    ng-model="signup.password">
+                                <p id="signup-passwordInputValidation"
+                                    class="form-control-label input-validation text-error ng-binding"
+                                    ng-bind="(badSubmit || signupForm.password.$dirty) ? signupForm.password.$validationMessage : ''">
+                                </p>
+                            </div>
+                            <div class="form-group"
+                                ng-class="{'has-error' : (badSubmit || signupForm.username.$dirty) &amp;&amp; signupForm.username.$invalid, 'has-success': (signupForm.username.$dirty &amp;&amp; signupForm.username.$valid) }">
+                                <input id="signup-refer" ng-trim="false" ng-change="onChange()" name="username"
+                                    class="form-control input-field ng-dirty ng-valid ng-valid-validusername ng-valid-unique ng-valid-moderated"
+                                    type="bobloxRefer" tabindex="1" rbx-valid-username="" rbx-form-interaction=""
+                                    rbx-form-validation="" placeholder="Inviter's Username (optional)" value=""
+                                    ng-model="signup.username" autocomplete="off">
+                                <p id="signup-referInputValidation"
+                                    class="form-control-label input-validation text-error ng-binding"
+                                    ng-bind="(badSubmit || signupForm.username.$dirty) ? signupForm.username.$validationMessage : ''">
+                                </p>
+                            </div>
+                            <div class="gender-container">
+                                <div id="genderForm" class="form-group"
+                                    ng-class="{'has-error' : (badSubmit &amp;&amp; !(signup.gender == 2 || signup.gender == 3)), 'has-success': signup.gender == 2 || signup.gender == 3 }">
+                                    <div class="form-control fake-input-lg">
+                                        <label>Gender</label>
+                                        <div id="FemaleButton" class="gender-circle" tabindex="7"
+                                            rbx-form-interaction="" name="genderFemale"
+                                            ng-class="{ 'selected-gender': signup.gender == 3 }"
+                                            ng-click="setGender($event, 3)" ng-keypress="setGender($event, 3)">
+                                            <div class="cover-sprite gender female"></div>
+                                        </div>
+                                        <div id="MaleButton" class="gender-circle" tabindex="8" rbx-form-interaction=""
+                                            name="genderMale" ng-class="{ 'selected-gender': signup.gender == 2 }"
+                                            ng-click="setGender($event, 2)" ng-keypress="setGender($event, 2)">
+                                            <div class="cover-sprite gender male"></div>
+                                        </div>
+                                    </div>
+                                    <p id="signup-GenderInputValidation"
+                                        class="form-control-label input-validation text-error ng-binding"
+                                        ng-bind="(badSubmit &amp;&amp; !(signup.gender == 2 || signup.gender == 3)) ? 'Gender is required' : ''">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="legal-text-container">
+                                By signing up you agree to our <a
+                                    href="/info/terms-of-service"
+                                    target="_blank">Terms</a> and <a
+                                    href="/info/privacy"
+                                    target="_blank">Privacy Policy</a>
+                            </div>
+                            <button id="signup-button" type="button" tabindex="9"
+                                class="btn-primary-md signup-submit-button" rbx-form-interaction="" name="signupSubmit"
+                                ng-disabled="isSubmitting" data-signup-api-url="https://api.roblox.com/signup/v1"
+                                ng-click="submitSignup($event)" ng-keypress="submitSignup($event)">Sign Up</button>
+                            <div id="GeneralErrorText" class="input-validation-large alert-warning font-bold ng-binding" ng-show="signupForm.$generalError" ng-bind="signupForm.$generalErrorText" ng-click="signupForm.$generalError=false">Sorry, an error occurred.</div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script>
+    function checkUsername(e){
+        if (document.getElementById("signup-username").value.startsWith("_")||document.getElementById("signup-username").value.endsWith("_")){
+            document.getElementById("signup-username").parentElement.classList.add("has-error")
+            document.getElementById("signup-usernameInputValidation").innerHTML="Username can’t start or end with _"
+        }else if (document.getElementById("signup-username").value.search(/[^\w]/g)!=-1){
+            document.getElementById("signup-username").parentElement.classList.add("has-error")
+            document.getElementById("signup-usernameInputValidation").innerHTML="Spaces and special characters are not allowed"
+        }else if (document.getElementById("signup-username").value.length<3||document.getElementById("signup-username").value.length>20){
+            document.getElementById("signup-username").parentElement.classList.add("has-error")
+            document.getElementById("signup-usernameInputValidation").innerHTML="Usernames can be 3 to 20 characters long"
+        }else{
+            document.getElementById("signup-usernameInputValidation").innerHTML=""
+            let params = {username:document.getElementById("signup-username").value}
+            if (document.getElementById("signup-refer").value!=""){
+                params.referrer=document.getElementById("signup-refer").value
+            }
+            fetch("/api/checkUsername?"+(new URLSearchParams(params).toString()),{
+                method:"GET"
+            }).then(function(res){
+                if (res.status==200||res.status==500){
+                    document.getElementById("signup-username").parentElement.classList.remove("has-error") // maybe replace would work too
+                    document.getElementById("signup-username").parentElement.classList.add("has-success")
+                    if (document.getElementById("signup-refer").value==""){
+                        document.getElementById("signup-refer").parentElement.classList.remove("has-error")
+                        document.getElementById("signup-refer").parentElement.classList.remove("has-success")
+                        document.getElementById("signup-referInputValidation").innerHTML=""
+                    }else{
+                        document.getElementById("signup-refer").parentElement.classList.remove("has-error")
+                        document.getElementById("signup-refer").parentElement.classList.add("has-success")
+                        document.getElementById("signup-referInputValidation").innerHTML=""
+                    }
+                }else if (res.status==404){
+                    document.getElementById("signup-username").parentElement.classList.remove("has-error") // maybe replace would work too
+                    document.getElementById("signup-username").parentElement.classList.add("has-success")
+                    document.getElementById("signup-refer").parentElement.classList.remove("has-success")
+                    document.getElementById("signup-refer").parentElement.classList.add("has-error")
+                    document.getElementById("signup-referInputValidation").innerHTML="This user does not exist"
+                }else if (res.status==406){
+                    document.getElementById("signup-username").parentElement.classList.remove("has-success")
+                    document.getElementById("signup-username").parentElement.classList.add("has-error")
+                    document.getElementById("signup-usernameInputValidation").innerHTML="Username not appropriate for BOBLOX"
+                }else if (res.status==409){
+                    document.getElementById("signup-username").parentElement.classList.remove("has-success")
+                    document.getElementById("signup-username").parentElement.classList.add("has-error")
+                    document.getElementById("signup-usernameInputValidation").innerHTML="This username is already in use"
+                }else{
+                    document.getElementById("signup-username").parentElement.classList.remove("has-success")
+                    document.getElementById("signup-username").parentElement.classList.add("has-error")
+                    document.getElementById("signup-usernameInputValidation").innerHTML="Sorry, an error occurred"
+                }
+            })
+        }
+    }
+    document.getElementById("signup-username").addEventListener("input",checkUsername)
+    document.getElementById("signup-refer").addEventListener("input",checkUsername)
+    function checkPassword(e){
+        if (document.getElementById("signup-password").value==""||document.getElementById("signup-password").value=="12345678"||document.getElementById("signup-password").value=="123456789"||document.getElementById("signup-password").value=="1234567890"||document.getElementById("signup-password").value==document.getElementById("signup-username").value){
+            document.getElementById("signup-password").parentElement.classList.remove("has-success")
+            document.getElementById("signup-password").parentElement.classList.add("has-error")
+            document.getElementById("signup-passwordInputValidation").innerHTML="Please create a more complex password"
+        }else if (document.getElementById("signup-password").value.length<8){
+            document.getElementById("signup-password").parentElement.classList.remove("has-success")
+            document.getElementById("signup-password").parentElement.classList.add("has-error")
+            document.getElementById("signup-passwordInputValidation").innerHTML="Must be at least 8 characters long"
+        }else if (document.getElementById("signup-password").value.length>200){
+            document.getElementById("signup-password").parentElement.classList.remove("has-success")
+            document.getElementById("signup-password").parentElement.classList.add("has-error")
+            document.getElementById("signup-passwordInputValidation").innerHTML="Must be at most 200 characters long"
+        }else{
+            document.getElementById("signup-password").parentElement.classList.remove("has-error")
+            document.getElementById("signup-password").parentElement.classList.add("has-success")
+            document.getElementById("signup-passwordInputValidation").innerHTML=""
+        }
+    }
+    document.getElementById("signup-password").addEventListener("input",checkPassword)
+    document.getElementById("FemaleButton").addEventListener("click",function(e){
+        document.getElementById("FemaleButton").classList.add("selected-gender")
+        document.getElementById("MaleButton").classList.remove("selected-gender")
+        document.getElementById("genderForm").classList.remove("has-error")
+        document.getElementById("genderForm").classList.add("has-success")
+        document.getElementById("signup-GenderInputValidation").innerHTML=""
+    })
+    document.getElementById("MaleButton").addEventListener("click",function(e){
+        document.getElementById("MaleButton").classList.add("selected-gender")
+        document.getElementById("FemaleButton").classList.remove("selected-gender")
+        document.getElementById("genderForm").classList.remove("has-error")
+        document.getElementById("genderForm").classList.add("has-success")
+        document.getElementById("signup-GenderInputValidation").innerHTML=""
+    })
+    document.getElementById("signup-button").addEventListener("click",function(e){
+        checkUsername(e)
+        checkPassword(e)
+        if (!document.getElementById("FemaleButton").classList.contains("selected-gender")&&!document.getElementById("MaleButton").classList.contains("selected-gender")){
+            document.getElementById("genderForm").classList.add("has-error")
+            document.getElementById("signup-GenderInputValidation").innerHTML="Gender is required"
+            return
+        }
+        if (document.getElementById("signup-username").parentElement.classList.contains("has-error")){
+            return
+        }
+        if (document.getElementById("signup-refer").parentElement.classList.contains("has-error")){
+            return
+        }
+        if (document.getElementById("signup-password").parentElement.classList.contains("has-error")){
+            return
+        }
+        let body = {female:false,username:document.getElementById("signup-username").value,password:document.getElementById("signup-password").value,referrer:document.getElementById("signup-refer").value}
+        if (document.getElementById("FemaleButton").classList.contains("selected-gender")){
+            body.female = true
+        }
+        if (body.referrer==""){
+            delete body.referrer
+        }
+        fetch("/api/signup",{
+            method:"POST",
+            body:JSON.stringify(body),
+            headers:{"Content-Type":"application/json"}
+        }).then(function(res){
+            if (res.status==201){
+                let params = new URLSearchParams(location.search)
+                if (params.has("returnUrl")){
+                    location.href=params.get("returnUrl")
+                }else{
+                    location.reload()
+                }
+            }else if (res.status!=404 && res.status!=409 && req.status!=406){
+                document.getElementById("GeneralErrorText").style.display="block"
+            }
+        })
+    })
+    document.addEventListener("scroll",function(e){
+        //console.log(scrollY)
+        if (location.pathname!="/"){
+            document.getElementById("header").setAttribute("style","")
+            return
+        }
+        document.getElementById("header").style.backgroundColor="rgba(0,0,0,"+(scrollY > 75 ? .85 : .35 + scrollY / 150)+")"
+    })
+    document.title="BOBLOX.collabai.lol"
+</script>
