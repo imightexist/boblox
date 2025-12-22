@@ -14,3 +14,4 @@
 npm i
 node index.js
 ```
+you'll need to replace `BOBLOX.collabai.lol` in all of the files with your domain, but the rest could be configured in config.json

@@ -7,7 +7,7 @@
     "minPassLen":8,
     "encoding":"base64",
     "salt":"thissaltisntusedinproduction",
-    "badWords":["fuck","cum","shid","shit","retard","autist","autism","nigger","nigga","porn","currymuncher","prostitute","diddy","dildo","911","pedophile","ejaculate","semen","sperm","vagina","pussy","predator","slave","fag","asshole","penis","dick","cock","tard","breast","boob","tit","blowjob","footjob","handjob","pawjob","e621","butt","chink","bitch","rule34","r34","ru34","rul34"],
+    "badWords":["superduperbadword"],
     "user":{
         "password":{},
         "robux":0,
