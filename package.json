@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cuss": "^2.2.0",
+    "express": "^5.1.0",
+    "jsdom": "^26.1.0",
+    "naughty-words": "^1.2.0",
+    "noblox.js": "^6.2.0",
+    "nocache": "^4.0.0",
+    "obscenity": "^0.4.4",
+    "xml2js": "^0.6.2"
+  }
+}
