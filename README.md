@@ -5,7 +5,7 @@
 - robux & tix counters, theres no legit way to get robux
 - inviting system (gives tix)
 - account creation and sign in
-- "admin" accounts with access to an "admin console" (its shitty and uses javascript eval for input)
+- "admin" accounts with access to an "admin console" (you have to input thru f12 dev tools and it only accepts javascript thru eval)
 ## links
 - [boblox](https://boblox.collabai.lol)
 - [discord](https://boblox.collabai.lol/discord) (pls join if you know how to rcc i do want this finished one day)
