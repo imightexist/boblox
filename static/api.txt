@@ -1,0 +1,46 @@
+Welcome to the BOBLOX API documentation!
+
+GET /api/checkUsername
+    Purpose:
+        Check if a username is available
+    URL Search Params:
+        username (string)
+        referrer (string, optional)
+    Response Status Codes:
+        200 - Username is available
+        400 - Invalid request or username has illegal symbols
+        404 - Inviter does not exist
+        406 - Inappropriate username
+        409 - Username already exists
+POST /api/signup
+    Purpose:
+        Register a BOBLOX account
+    Request Body (JSON):
+        username (string)
+        password (string)
+        female (boolean)
+        referrer (string, optional)
+    Response Status Codes:
+        201 - Success
+        400 - Invalid request or illegal username/password
+        404 - Inviter does not exist
+        406 - Inappropriate username
+        409 - Username already exists
+        500 - Internal server error
+POST /api/login
+    Purpose:
+        Log in to BOBLOX
+    Request Body (JSON):
+        username (string)
+        password (string)
+    Response Status Codes:
+        200 - Success
+        400 - Invalid request or illegal username/password
+        401 - Incorrect username or password
+        500 - Internal server error
+POST /api/logout
+    Purpose:
+        Log out
+    Response Status Codes:
+        200 - Success
+        401 - You aren't logged in

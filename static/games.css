@@ -1,0 +1,213 @@
+.input-group-btn {
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+    display: block;
+    line-height: 18px;
+    padding: 0;
+    width: 100%;
+}
+
+.input-group-btn .input-addon-btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: box-shadow .2 ease-in-out;
+    -o-transition: box-shadow .2 ease-in-out;
+    transition: box-shadow .2 ease-in-out;
+    border: 1px solid transparent;
+    background-color: #fff;
+    border-color: #B8B8B8;
+    color: #191919;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    height: auto;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-left-color: transparent;
+    height: 38px;
+    padding: 0;
+}
+
+.input-group-btn .input-addon-btn:link {
+    color: #191919;
+}
+
+.input-group-btn .input-addon-btn:hover,.input-group-btn .input-addon-btn:focus {
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(150,150,150,0.74);
+    border-color: #B8B8B8;
+    color: #191919;
+    cursor: pointer;
+}
+
+.input-group-btn .input-addon-btn:active,.input-group-btn .input-addon-btn.active {
+    box-shadow: none;
+    background-color: #fff;
+    color: #191919;
+}
+
+.input-group-btn .input-addon-btn:active:focus,.input-group-btn .input-addon-btn.active:focus {
+    outline: 0 none;
+}
+
+.input-group-btn .input-addon-btn:visited {
+    box-shadow: none;
+    color: #191919;
+}
+
+.input-group-btn .input-addon-btn:visited:focus {
+    outline: 0 none;
+}
+
+.input-group-btn .input-addon-btn.disabled,.input-group-btn .input-addon-btn.disabled:hover,.input-group-btn .input-addon-btn.disabled:focus,.input-group-btn .input-addon-btn.disabled:active,.input-group-btn .input-addon-btn.disabled.active,.input-group-btn .input-addon-btn[disabled],.input-group-btn .input-addon-btn[disabled]:hover,.input-group-btn .input-addon-btn[disabled]:focus,.input-group-btn .input-addon-btn[disabled]:active,.input-group-btn .input-addon-btn[disabled].active {
+    opacity: 1;
+    background-color: #fff;
+    border-color: #B8B8B8;
+    color: #B8B8B8;
+    cursor: default;
+}
+
+.input-group-btn .input-addon-btn:hover,.input-group-btn .input-addon-btn:focus {
+    box-shadow: none;
+    cursor: pointer;
+    border-left: 0;
+    outline: 0 none;
+    outline-offset: 0;
+}
+
+.input-group-btn .dropdown-menu {
+    max-height: 266px;
+}
+
+.input-group-btn .dropdown-menu li {
+    padding: 0;
+}
+
+.input-group-btn .dropdown-menu li:hover {
+    box-shadow: 0 none;
+}
+
+.input-group-btn .dropdown-menu li a {
+    padding: 10px 12px;
+    display: block;
+}
+
+.input-group-btn .dropdown-menu li a:hover,.input-group-btn .dropdown-menu li a:focus {
+    background-color: #F2F2F2;
+}
+
+.input-group-btn .dropdown-menu li a:hover,.input-group-btn .dropdown-menu li a:focus,.input-group-btn .dropdown-menu li a.active {
+    box-shadow: 4px 0 0 0 #00A2FF inset;
+    cursor: pointer;
+    outline: 0 none;
+    border: 0 none;
+}
+
+.input-group-btn .input-dropdown-btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: box-shadow .2 ease-in-out;
+    -o-transition: box-shadow .2 ease-in-out;
+    transition: box-shadow .2 ease-in-out;
+    border: 1px solid transparent;
+    background-color: #fff;
+    border-color: #B8B8B8;
+    color: #191919;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    height: auto;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 3px;
+    padding: 5px 12px;
+    margin: 0;
+    line-height: 18px;
+    display: block;
+    width: 100%;
+}
+
+.input-group-btn .input-dropdown-btn:link {
+    color: #191919;
+}
+
+.input-group-btn .input-dropdown-btn:hover,.input-group-btn .input-dropdown-btn:focus {
+    background-color: #00A2FF;
+    box-shadow: 0 1px 3px rgba(150,150,150,0.74);
+    border-color: #00A2FF;
+    color: #fff;
+    cursor: pointer;
+}
+
+.input-group-btn .input-dropdown-btn:active,.input-group-btn .input-dropdown-btn.active {
+    box-shadow: none;
+    background-color: #00A2FF;
+    color: #fff;
+}
+
+.input-group-btn .input-dropdown-btn:active:focus,.input-group-btn .input-dropdown-btn.active:focus {
+    outline: 0 none;
+}
+
+.input-group-btn .input-dropdown-btn:visited {
+    box-shadow: none;
+    color: #fff;
+}
+
+.input-group-btn .input-dropdown-btn:visited:focus {
+    outline: 0 none;
+}
+
+.input-group-btn .input-dropdown-btn.disabled,.input-group-btn .input-dropdown-btn.disabled:hover,.input-group-btn .input-dropdown-btn.disabled:focus,.input-group-btn .input-dropdown-btn.disabled:active,.input-group-btn .input-dropdown-btn.disabled.active,.input-group-btn .input-dropdown-btn[disabled],.input-group-btn .input-dropdown-btn[disabled]:hover,.input-group-btn .input-dropdown-btn[disabled]:focus,.input-group-btn .input-dropdown-btn[disabled]:active,.input-group-btn .input-dropdown-btn[disabled].active {
+    opacity: 1;
+    background-color: #fff;
+    border-color: #B8B8B8;
+    color: #B8B8B8;
+    cursor: default;
+}
+
+.input-group-btn .input-dropdown-btn:hover,.input-group-btn .input-dropdown-btn:focus {
+    box-shadow: none;
+}
+
+.input-group-btn .input-dropdown-btn:hover .icon-down,.input-group-btn .input-dropdown-btn:focus .icon-down {
+    background-position: -16px -464px;
+}
+
+.input-group-btn .input-dropdown-btn .rbx-selection-label {
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 300;
+}
+
+.input-group-btn .input-dropdown-btn span {
+    display: inline-block;
+}
+
+.input-group-btn .input-dropdown-btn span[class^="icon"] {
+    float: right;
+    margin-top: 5px;
+}
+@media(min-width: 480px) {
+    .games-page-filters .input-group-btn {
+        width:164px;
+        padding-right: 0;
+        display:inline-block;
+    }
+}
+.games-page-filters .input-group-btn {
+    margin-bottom: 6px;
+    padding:0px 4px;
+    margin-right:3px
+}
