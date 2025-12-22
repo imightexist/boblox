@@ -9,6 +9,7 @@
 ## links
 - [boblox](https://boblox.collabai.lol)
 - [discord](https://boblox.collabai.lol/discord) (pls join if you know how to rcc i do want this finished one day)
+- [api](https://boblox.collabai.lol/static/api.txt)
 ## set up
 ```
 npm i
